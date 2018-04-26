@@ -4,4 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/escenas/Portada.unity
+    guid: 09ac9534dea52794bab9811e4cfda011
+  - enabled: 1
+    path: Assets/escenas/Integrantes.unity
+    guid: 07a078c7378b7c24191af633b78f8d07
+  - enabled: 1
+    path: Assets/escenas/MenuPrincipal.unity
+    guid: 63a164d3232ddf944aa83fbfc443d36e
+  - enabled: 1
+    path: Assets/escenas/GameOver.unity
+    guid: fa0ebb02b605d7b43a14d4ee1f94a0e0
+  - enabled: 1
+    path: Assets/escenas/Win.unity
+    guid: aa4d5ebbe77e90f4fb2189ef8bf17804
