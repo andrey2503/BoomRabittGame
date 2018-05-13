@@ -28,7 +28,10 @@ public class Player_Inputs : MonoBehaviour {
 
 			}
 			if (Input.GetKeyDown ("space")) {
-				Player_engine.instance.Salto ();
+				//Player_engine.instance.Salto ();
+				if(Player_jump.instance.verificar_suerlo ()){
+					Player_engine.instance.Salto ();
+				}
 			}// fin de input space
 			//if(Input.GetAxis("Vertical") != 0) {
 			//				ControlPersonaje.instance.MoveVertical(Input.GetAxis("Vertical"));
