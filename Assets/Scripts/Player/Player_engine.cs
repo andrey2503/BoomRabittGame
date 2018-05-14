@@ -34,4 +34,7 @@ public class Player_engine : MonoBehaviour {
 	public float getPosX(){
 		return personaje.transform.position.x;
 	}
+	public float getPosY(){
+		return personaje.transform.position.y;
+	}
 }
