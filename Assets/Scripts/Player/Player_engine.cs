@@ -37,4 +37,8 @@ public class Player_engine : MonoBehaviour {
 	public float getPosY(){
 		return personaje.transform.position.y;
 	}
+
+	public void resetPostPlayer(){
+		personaje.transform.position = new Vector3 (0,2,0);
+	}
 }

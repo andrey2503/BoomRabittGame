@@ -13,7 +13,8 @@ public class Control_meta : MonoBehaviour {
 	void OnTriggerEnter(Collider meta){
 		if(meta.gameObject.tag=="Player"){
 			Debug.Log ("Jugador llego a la meta");
-			Player_Inputs.instance.activo = false;
+			//Player_Inputs.instance.activo = false;
+			Player_engine.instance.resetPostPlayer ();
 		}
 	}// OnTriggerEnter
 	
