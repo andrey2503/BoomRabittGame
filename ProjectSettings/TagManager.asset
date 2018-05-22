@@ -6,6 +6,7 @@ TagManager:
   tags:
   - suelo
   - zanahoria_punto
+  - topo_enemigo_pequeno
   layers:
   - Default
   - TransparentFX

@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fd918901580f54dbc5dbfc0fc08d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distancia_deteccion: 0.5
+  distancia_deteccion: 0.55
 --- !u!1001 &237066643
 Prefab:
   m_ObjectHideFlags: 0
@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0753d1cea5f93d34b9d4b411fb054356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escena: 9
 --- !u!1001 &601264190
 Prefab:
   m_ObjectHideFlags: 0

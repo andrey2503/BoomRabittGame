@@ -8,8 +8,15 @@ public class Player_engine : MonoBehaviour {
 	public float salto=1;
 	public float mover=1f;
 	// Use this for initialization
+	void Awake(){
+		if(Player_engine.instance == null){
+			Player_engine.instance = this;
+		}else{
+			Destroy (this.gameObject);
+		}// else
+
+	}// fin del Awake
 	void Start () {
-		instance = this;
 	}
 	
 	// Update is called once per frame

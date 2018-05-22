@@ -7,8 +7,17 @@ public class Player_Inputs : MonoBehaviour {
 	public static Player_Inputs instance;
 
 	// Use this for initialization
+
+	void Awake(){
+		if(Player_Inputs.instance == null){
+			Player_Inputs.instance = this;
+		}else{
+			Destroy (this.gameObject);
+		}// else
+
+	}// fin del Awake
+
 	void Start () {
-		instance = this;
 	}
 	
 	// Update is called once per frame
