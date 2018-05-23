@@ -26,3 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/escenas/mecanica_muerte_precipicio.unity
     guid: 552268abef6f73044a5d5e1bbe14d786
+  - enabled: 1
+    path: Assets/escenas/mecanica_enemigo_topo.unity
+    guid: a8a3024b7fbcc22499ae89c57308e61a
+  - enabled: 1
+    path: Assets/escenas/mecanica_salto_muerte_precipicio.unity
+    guid: 0a8a21b21bdb520458d364abf59d61f6
+  - enabled: 1
+    path: Assets/escenas/mecanica_zanahoria_puntos.unity
+    guid: 1fe60ca084ad0634aaeae36eb5544a70

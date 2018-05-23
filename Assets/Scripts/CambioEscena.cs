@@ -4,15 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CambioEscena : MonoBehaviour {
-
+	public static CambioEscena instance;
 	public int indiceEscena =  0 ;
 	// public bool timer = false;
 	public bool timer = true;	
 	public float tiempoEspera = 3f;
-	// Use this for initialization
-	void Start () {
 
+	void Awake(){
+		if(CambioEscena.instance==null){
+			CambioEscena.instance = this;
+		}else{
+			Destroy (this.gameObject);
+		}
 	}
+	// Use this for initialization
 
 	// Update is called once per frame
 	void Update () {
@@ -29,5 +34,10 @@ public class CambioEscena : MonoBehaviour {
 		yield return new WaitForSeconds (tiempoEspera);
 		Debug.Log ("Cambio de scene");
 		SceneManager.LoadScene (indiceEscena);
+	}
+
+	public void setScene(int escena){
+		this.indiceEscena = escena;
+		CambiarEscenaManual ();
 	}
 }

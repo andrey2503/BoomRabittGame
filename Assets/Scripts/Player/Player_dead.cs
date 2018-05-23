@@ -6,8 +6,15 @@ public class Player_dead : MonoBehaviour {
 	public static Player_dead instance;
 	// Use this for initialization
 	public GameObject muerte_precipicio;
+	void Awake(){
+		if(Player_dead.instance == null){
+			Player_dead.instance = this;
+		}else{
+			Destroy (this.gameObject);
+		}// else
+
+	}// fin del Awake
 	void Start () {
-		instance = this;
 	}
 
 	void Update () {
