@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cac8c6d92ac2d40a7c7e824f4694ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indiceEscena: 1
+  indiceEscena: 2
   timer: 1
   tiempoEspera: 3
 --- !u!4 &580190109
