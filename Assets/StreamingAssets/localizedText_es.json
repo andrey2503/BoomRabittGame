@@ -2,11 +2,15 @@
     "items": [
         {
             "key": "game_title",
-            "value": "Quiz Spiel"
+            "value": "BoomRabitt"
         },
         {
             "key": "start_button",
             "value": "Spiel Beginnen"
+        },
+        {
+            "key": "iniciar_juego",
+            "value":"Iniciar Juego"
         }
     ]
 }

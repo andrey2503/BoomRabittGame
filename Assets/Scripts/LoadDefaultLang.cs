@@ -6,6 +6,6 @@ public class LoadDefaultLang : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameControl.instance.LoadLocalizedText("localizedText_es.json");
+		GameControl.instance.LoadLocalizedText("localizedText_en.json");
 	}
 }

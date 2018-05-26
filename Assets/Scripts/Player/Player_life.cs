@@ -17,8 +17,8 @@ public class Player_life : MonoBehaviour {
 	}// fin del Awake
 
 	public void disminuirVida(){
+		this.vida=this.vida-25;
 		slideVida.value = this.vida;
-		this.vida--;
 		Debug.Log (this.vida);
 	}// fin de dismiuir Vida
 

@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 573012887}
   - component: {fileID: 573012886}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: btn-ingles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 769242967}
   - component: {fileID: 769242969}
   - component: {fileID: 769242968}
+  - component: {fileID: 769242970}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -613,6 +614,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 769242966}
+--- !u!114 &769242970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769242966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20098a094ab3c1b4ea2bddc81a5357bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: iniciar_juego
 --- !u!1 &800193550
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +706,7 @@ GameObject:
   - component: {fileID: 802076990}
   - component: {fileID: 802076989}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: btn-espanol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -970,7 +983,7 @@ GameObject:
   - component: {fileID: 997262926}
   - component: {fileID: 997262925}
   m_Layer: 5
-  m_Name: Button
+  m_Name: iniciar juego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,7 +1126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: -107}
+  m_AnchoredPosition: {x: 36.5, y: 140.71}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1027413868
@@ -1222,7 +1235,7 @@ GameObject:
   - component: {fileID: 1121825854}
   - component: {fileID: 1121825853}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: sonido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
