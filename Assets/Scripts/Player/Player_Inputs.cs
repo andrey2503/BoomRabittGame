@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_Inputs : MonoBehaviour {
 	public bool activo = true;
 	public static Player_Inputs instance;
+	public int llamarCorrutina=1;
 
 	// Use this for initialization
 
@@ -27,14 +28,21 @@ public class Player_Inputs : MonoBehaviour {
 
 	void FixedUpdate(){
 		if(activo){
-			if(Input.GetAxis("Horizontal") != 0) {
-				float mover=Input.GetAxis("Horizontal");
+			if (Input.GetAxis ("Horizontal") != 0) {
+				
+				float mover = Input.GetAxis ("Horizontal");
 				if (mover > 0) {
 					Player_engine.instance.MoverDerecha ();
-				} else {
+					llamarCorrutinaMovimiento ();
+					llamarCorrutina++;
+				} else if (mover < 0) {
 					Player_engine.instance.MoverIzquierda ();
+					llamarCorrutinaMovimiento ();
+					llamarCorrutina++;
 				}// fin de if izquierda Derecha
-
+			} else {
+				llamarCorrutina=1;
+				Player_engine.instance.personajeDetenido ();
 			}
 			if (Input.GetKeyDown ("space")) {
 				//Player_engine.instance.Salto ();
@@ -42,10 +50,15 @@ public class Player_Inputs : MonoBehaviour {
 					Player_engine.instance.Salto ();
 				}
 			}// fin de input space
-			//if(Input.GetAxis("Vertical") != 0) {
-			//				ControlPersonaje.instance.MoveVertical(Input.GetAxis("Vertical"));
-			//}if vertical
 		}//if activo
-	}//fin de 
+	}//fin de fixexUpdate
+
+	public void llamarCorrutinaMovimiento(){
+		if(llamarCorrutina==1){
+			Player_engine.instance.moviendose ();
+		}
+			
+	}// fin de llamarCorrutinaMovimiento
+
 
 }

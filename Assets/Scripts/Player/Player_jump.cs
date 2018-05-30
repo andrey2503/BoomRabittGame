@@ -18,14 +18,16 @@ public class Player_jump : MonoBehaviour {
 	void Start () {
 	}
 	void Update(){
-		//Debug.DrawLine(transform.position,transform.TransformDirection(Vector3.down*distancia_deteccion),Color.red);
-		//Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) *distancia_deteccion, Color.yellow);
-		Debug.DrawRay(this.transform.position, new Vector3(0,-1,0) *distancia_deteccion, Color.blue);
-		//Debug.Log (hit.distance);
+		//Debug.DrawRay(this.transform.position, new Vector3(0,-1,0) *distancia_deteccion, Color.blue);
+		if (!verificar_suerlo ()) {
+			Player_engine.instance.personajeEnSalto ();	
+		} else {
+			Player_engine.instance.personajeEnSuelo ();
+		}
 	}
 	public bool verificar_suerlo(){
 		int layerMask = 1 << 8;
-		Debug.Log(Physics.Raycast(this.transform.position, new Vector3(0,-1,0) *distancia_deteccion, layerMask));
+		//Debug.Log(Physics.Raycast(this.transform.position, new Vector3(0,-1,0) *distancia_deteccion, layerMask));
 		if ( Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), distancia_deteccion,  layerMask))
 		{
 			return true;
