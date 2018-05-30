@@ -231,6 +231,7 @@ MonoBehaviour:
   salto: 3.5
   mover: 0.07
   subirMovimiento: 1
+  saltando: 0
 --- !u!114 &163355075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,8 +589,9 @@ GameObject:
   - component: {fileID: 1214167051}
   - component: {fileID: 1214167050}
   - component: {fileID: 1214167049}
+  - component: {fileID: 1214167052}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,6 +665,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1214167047}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1214167052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214167047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a20db354ee7fd4daa0044f0e3bf85e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 0.01
 --- !u!1001 &1656809771
 Prefab:
   m_ObjectHideFlags: 0

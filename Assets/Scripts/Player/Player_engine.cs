@@ -81,9 +81,7 @@ public class Player_engine : MonoBehaviour {
 		
 		if (this.mover < 0.25f) {
 			if(subirMovimiento){
-			Debug.Log(this.mover);
 			this.mover += 0.02f;
-			Debug.Log(this.mover);
 			}
 			moviendose ();
 			Debug.Log ("Subiendo velocidad de movimineto");
