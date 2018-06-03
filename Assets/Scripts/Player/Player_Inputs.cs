@@ -46,7 +46,7 @@ public class Player_Inputs : MonoBehaviour {
 				llamarCorrutina=1;
 				Player_engine.instance.personajeDetenido ();
 			}
-			if (Input.GetKeyDown ("space")) {
+			if (Input.GetKeyDown (KeyCode.UpArrow)) {
 				//Player_engine.instance.Salto ();
 				if(Player_jump.instance.verificar_suerlo ()){
 					Player_engine.instance.Salto ();
