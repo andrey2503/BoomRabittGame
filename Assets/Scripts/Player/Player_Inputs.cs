@@ -35,12 +35,12 @@ public class Player_Inputs : MonoBehaviour {
 					Player_engine.instance.MoverDerecha ();
 					llamarCorrutinaMovimiento ();
 					llamarCorrutina++;
-					ControlFondo.instace.moverEscenarioDerecha ();
+					//ControlFondo.instace.moverEscenarioDerecha ();
 				} else if (mover < 0) {
 					Player_engine.instance.MoverIzquierda ();
 					llamarCorrutinaMovimiento ();
 					llamarCorrutina++;
-					ControlFondo.instace.moverEscenarioIzquierda ();
+					//ControlFondo.instace.moverEscenarioIzquierda ();
 				}// fin de if izquierda Derecha
 			} else {
 				llamarCorrutina=1;
@@ -53,6 +53,9 @@ public class Player_Inputs : MonoBehaviour {
 				}
 			}// fin de input space
 		}//if activo
+		else{
+			
+		}
 	}//fin de fixexUpdate
 
 	public void llamarCorrutinaMovimiento(){
@@ -61,6 +64,11 @@ public class Player_Inputs : MonoBehaviour {
 		}
 			
 	}// fin de llamarCorrutinaMovimiento
-
-
+	public void HabilitarInputs(){
+		StartCoroutine (habilitarInputs());
+	}
+	private IEnumerator habilitarInputs(){
+		yield return new WaitForSeconds (0.5f);
+		activo = true;
+	}// fin de subirVelocidadMovimeinto
 }

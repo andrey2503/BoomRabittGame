@@ -10,9 +10,9 @@ public class Player_engine : MonoBehaviour {
 	public bool subirMovimiento = true;
 	public bool saltando = false;
 
-	public float jumpDuration = 0.5f;
-	public float jumpDistance = 3;
-	private bool jumping = false;
+	public float jumpDuration = 0.3f;
+	public float jumpDistance = 0.2f;
+
 	// Use this for initialization
 	void Awake(){
 		if(Player_engine.instance == null){
@@ -37,22 +37,20 @@ public class Player_engine : MonoBehaviour {
 	public void MoverIzquierda(){
 		personaje.transform.position = new Vector3 (personaje.transform.position.x-mover,personaje.transform.position.y,personaje.transform.position.z);
 	}//fin de mover izquierda
-	public float gravity = 10.0f;
+
 	public void Salto(){
 		Vector3 saltoArriba = (transform.up) * jumpDistance;
 		Debug.Log (saltoArriba);
 		StartCoroutine (nuevoSalto(saltoArriba));
 	}//fin de salto
 
-	private IEnumerator nuevoSalto(Vector3 direccion){
+	public Vector3 getPosition(){
+		return transform.position;
+	}
 
+	private IEnumerator nuevoSalto(Vector3 direccion){
+		bool jumping = false;
 		jumping = true;
-		Vector3 startPoint = transform.position;
-		Vector3 targetPoint = startPoint + direccion;
-		Debug.Log (startPoint + direccion);
-		Debug.Log (direccion);
-		Debug.Log (startPoint);
-		Debug.Log (targetPoint);
 		float time = 0;
 		float jumpProgress = 0;
 		int contador = 0;
@@ -63,21 +61,12 @@ public class Player_engine : MonoBehaviour {
 				jumping = false;
 				jumpProgress = 1;
 			}
-			//Vector3 currentPos = Vector3.Lerp(startPoint, targetPoint, jumpProgress);
 			transform.Translate(Vector3.up*jumpDistance);
-			Debug.Log (contador+"->"+targetPoint);
 			contador++;
 			time += Time.deltaTime;
 			yield return null;
 		}// fin del while
 	}// fin de nuevoSalto
-
-
-
-
-
-
-
 
 	public float getPosX(){
 		return personaje.transform.position.x;
@@ -99,20 +88,15 @@ public class Player_engine : MonoBehaviour {
 	}// fin de personajeDetenido
 
 	public void moviendose(){
-		//iniciar corru
-		//if(subirMovimiento){
 			StartCoroutine(SubirVelocidadMovimiento());
-		//}
 	}//
 	private IEnumerator SubirVelocidadMovimiento(){
-			//Debug.Log ("corriendo corrutina en valor "+this.mover);
 			yield return new WaitForSeconds (0.1f);
 			actualizarVelocidad ();
 
 	}// fin de subirVelocidadMovimeinto
 
 	public void personajeEnSalto(){
-		//Debug.Log ("Detener subirmovimiento por personaje en salto" + this.mover);
 		subirMovimiento = false;
 	}// fin de personajeEnSalto
 
@@ -122,7 +106,7 @@ public class Player_engine : MonoBehaviour {
 
 	public void actualizarVelocidad(){
 		
-		if (this.mover < 0.08f) {
+		if (this.mover < 0.10f) {
 			if(subirMovimiento){
 			this.mover += 0.02f;
 			}
@@ -133,7 +117,13 @@ public class Player_engine : MonoBehaviour {
 		}
 	}// fin de actualizar velocidad
 
-	public void inputMoviendoceDerechaIzquierda(){
-		//this.inputMoviendoce = true;
-	}
+
+	public void choqueEnemigo(int direccion){
+		if (direccion == 1) {
+			personaje.GetComponent<Rigidbody> ().AddForce (transform.right * 9, ForceMode.Impulse);
+		} else {
+			personaje.GetComponent<Rigidbody> ().AddForce (transform.right * -9, ForceMode.Impulse);
+		}
+		Player_Inputs.instance.HabilitarInputs ();
+		}
 }
