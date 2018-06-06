@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: ab2147f7da7ca204198066c7a16a8058
-timeCreated: 1526751460
+guid: e62e7e3fbad37ba409b091618dd3e62b
+timeCreated: 1528253781
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert2
+    2100000: natureKit-_defaultMat
+    2100002: natureKit-mushroom
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCube13
-    9500000: //RootNode
+    4300000: mushroom_redGroup
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -42,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -64,7 +64,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
@@ -86,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
