@@ -37,9 +37,11 @@ public class Player_Inputs : MonoBehaviour {
 					llamarCorrutina++;
 					//ControlFondo.instace.moverEscenarioDerecha ();
 				} else if (mover < 0) {
+					if(Player_engine.instance.getPosX()>0){
 					Player_engine.instance.MoverIzquierda ();
 					llamarCorrutinaMovimiento ();
 					llamarCorrutina++;
+					}
 					//ControlFondo.instace.moverEscenarioIzquierda ();
 				}// fin de if izquierda Derecha
 			} else {
