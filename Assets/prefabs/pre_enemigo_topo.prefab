@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114260317471780306}
   - component: {fileID: 114147867049156844}
   - component: {fileID: 54626995374000572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pre_enemigo_topo
   m_TagString: topo_enemigo_pequeno
   m_Icon: {fileID: 0}

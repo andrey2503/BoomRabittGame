@@ -6,7 +6,7 @@ public class Player_Inputs : MonoBehaviour {
 	public bool activo = true;
 	public static Player_Inputs instance;
 	public int llamarCorrutina=1;
-
+	private int direccion=0;
 	// Use this for initialization
 
 	void Awake(){
@@ -32,12 +32,15 @@ public class Player_Inputs : MonoBehaviour {
 				
 				float mover = Input.GetAxis ("Horizontal");
 				if (mover > 0) {
+					direccion = 1;
 					Player_engine.instance.MoverDerecha ();
 					llamarCorrutinaMovimiento ();
 					llamarCorrutina++;
 					//ControlFondo.instace.moverEscenarioDerecha ();
 				} else if (mover < 0) {
+					//limite del mundo
 					if(Player_engine.instance.getPosX()>0){
+						direccion = -1;
 					Player_engine.instance.MoverIzquierda ();
 					llamarCorrutinaMovimiento ();
 					llamarCorrutina++;
@@ -54,6 +57,9 @@ public class Player_Inputs : MonoBehaviour {
 					Player_engine.instance.Salto ();
 				}
 			}// fin de input space
+			if(Input.GetKeyDown("space")){
+				Debug.Log( Player_ataque.instance.ataque (direccion));
+			}
 		}//if activo
 		else{
 			

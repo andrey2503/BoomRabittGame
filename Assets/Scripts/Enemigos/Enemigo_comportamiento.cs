@@ -30,7 +30,7 @@ public class Enemigo_comportamiento : MonoBehaviour {
 	}// fin del update
 
 	public void atacandoPersonje (){
-		Debug.Log ("el personje esta cerca,atacar");
+		//Debug.Log ("el personje esta cerca,atacar");
 		velocidadMovimiento = 2;
 	}// fin de atacando personaje
 
@@ -52,11 +52,11 @@ public class Enemigo_comportamiento : MonoBehaviour {
 			Vector3 v3 = transformpersonaje - transform.position;
 
 			if (v3.x > 0.1) {
-				Debug.Log ("personaje esta a la derecha y la direccion es "+ direccion);
+				//Debug.Log ("personaje esta a la derecha y la direccion es "+ direccion);
 				muerteEnemigo (direccion,1);
 				//velocidadMovimiento = 3;
 			} else {
-				Debug.Log ("personaje esta a la izquierda y la direccion es "+ direccion);
+				//Debug.Log ("personaje esta a la izquierda y la direccion es "+ direccion);
 				muerteEnemigo (direccion,2);
 				//velocidadMovimiento = 3;
 			}

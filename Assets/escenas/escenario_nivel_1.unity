@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 163355075}
   - component: {fileID: 163355074}
   - component: {fileID: 163355076}
+  - component: {fileID: 163355077}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Player
@@ -642,6 +643,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distancia_deteccion: 0.55
+--- !u!114 &163355077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 163355068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c3f98ced975814dbe3c01119500d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancia_deteccion: 1.5
 --- !u!1001 &180080458
 Prefab:
   m_ObjectHideFlags: 0
