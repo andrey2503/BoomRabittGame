@@ -13,6 +13,8 @@ public class Player_engine : MonoBehaviour {
 	public float jumpDuration = 0.3f;
 	public float jumpDistance = 0.2f;
 
+	public int pesoCaida = -1;
+
 	// Use this for initialization
 	void Awake(){
 		if(Player_engine.instance == null){
@@ -30,12 +32,18 @@ public class Player_engine : MonoBehaviour {
 
 	}
 
+	public float getVelocityPostY (){
+		return  personaje.GetComponent<Rigidbody> ().velocity.y;
+	}
+
 	public void MoverDerecha(){
-		personaje.transform.position = new Vector3 (personaje.transform.position.x+mover,personaje.transform.position.y,personaje.transform.position.z);
+		//personaje.transform.position = new Vector3 (personaje.transform.position.x+mover,personaje.transform.position.y,personaje.transform.position.z);
+		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(6f,getVelocityPostY(), 0f );
 	}//fin de mover derecha
 
 	public void MoverIzquierda(){
-		personaje.transform.position = new Vector3 (personaje.transform.position.x-mover,personaje.transform.position.y,personaje.transform.position.z);
+		//personaje.transform.position = new Vector3 (personaje.transform.position.x-mover,personaje.transform.position.y,personaje.transform.position.z);
+		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(-6f, getVelocityPostY(), 0f );
 	}//fin de mover izquierda
 
 	public void Salto(){
@@ -56,12 +64,18 @@ public class Player_engine : MonoBehaviour {
 		int contador = 0;
 		while(jumping){
 			jumpProgress = time / jumpDuration;
-			if (jumpProgress > 1)
-			{
+			if (jumpProgress > 1) {
 				jumping = false;
 				jumpProgress = 1;
+				Debug.Log ("Add force hacia abajo");
+				//personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0,pesoCaida,0), ForceMode.Impulse);
+				personaje.GetComponent<Rigidbody> ().velocity = Vector3.down * 6;
+			} else {
+				
 			}
-			transform.Translate(Vector3.up*jumpDistance);
+			//transform.Translate(Vector3.up*jumpDistance);
+			personaje.GetComponent<Rigidbody> ().velocity = Vector3.up * 5;
+			//personaje.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpDistance);
 			contador++;
 			time += Time.deltaTime;
 			yield return null;
