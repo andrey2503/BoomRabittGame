@@ -14,7 +14,7 @@ public class Player_engine : MonoBehaviour {
 	public float jumpDistance = 0.2f;
 
 	public int pesoCaida = -1;
-
+	public float velocidadDeMovimiento = 5f;
 	// Use this for initialization
 	void Awake(){
 		if(Player_engine.instance == null){
@@ -38,12 +38,12 @@ public class Player_engine : MonoBehaviour {
 
 	public void MoverDerecha(){
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x+mover,personaje.transform.position.y,personaje.transform.position.z);
-		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(6f,getVelocityPostY(), 0f );
+		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(velocidadDeMovimiento,getVelocityPostY(), 0f );
 	}//fin de mover derecha
 
 	public void MoverIzquierda(){
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x-mover,personaje.transform.position.y,personaje.transform.position.z);
-		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(-6f, getVelocityPostY(), 0f );
+		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(-velocidadDeMovimiento, getVelocityPostY(), 0f );
 	}//fin de mover izquierda
 
 	public void Salto(){
@@ -69,12 +69,12 @@ public class Player_engine : MonoBehaviour {
 				jumpProgress = 1;
 				Debug.Log ("Add force hacia abajo");
 				//personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0,pesoCaida,0), ForceMode.Impulse);
-				personaje.GetComponent<Rigidbody> ().velocity = Vector3.down * 6;
+				personaje.GetComponent<Rigidbody> ().velocity = Vector3.down * pesoCaida;
 			} else {
 				
 			}
 			//transform.Translate(Vector3.up*jumpDistance);
-			personaje.GetComponent<Rigidbody> ().velocity = Vector3.up * 5;
+			personaje.GetComponent<Rigidbody> ().velocity = Vector3.up * jumpDistance;
 			//personaje.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpDistance);
 			contador++;
 			time += Time.deltaTime;
