@@ -95,9 +95,10 @@ public class Enemigo_comportamiento : MonoBehaviour {
 			}
 		}
 	}// OnTriggerEnter
-	void OnTriggerExit(Collider meta){
-			//detenerEnemigo = false;
-	}// OnTriggerEnter
+
+	public int getDireccion(){
+		return direccion;
+	}//S
 
 
 }

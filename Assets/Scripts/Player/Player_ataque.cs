@@ -14,17 +14,13 @@ public class Player_ataque : MonoBehaviour {
 		}// else
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		//Debug.DrawRay(this.transform.position, new Vector3(1,0,0) *distancia_deteccion, Color.blue);
-	}
+
 
 	public bool ataque(int direccion){
 		int layerMask = 1 << 9;
 		//Debug.Log(Physics.Raycast(this.transform.position, new Vector3(0,-1,0) *distancia_deteccion, layerMask));
 		Debug.DrawRay(this.transform.position, new Vector3(direccion,0,0) *distancia_deteccion, Color.blue);
-	
+
 		if ( Physics.Raycast(transform.position, new Vector3(direccion,0,0) *distancia_deteccion, distancia_deteccion,  layerMask))
 		{
 			return true;
