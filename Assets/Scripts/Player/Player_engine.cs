@@ -69,8 +69,11 @@ public class Player_engine : MonoBehaviour {
 				jumpProgress = 1;
 				Debug.Log ("Add force hacia abajo");
 				//personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0,pesoCaida,0), ForceMode.Impulse);
-				personaje.GetComponent<Rigidbody> ().velocity = Vector3.down * pesoCaida;
-			} else {
+				//personaje.GetComponent<Rigidbody> ().velocity = Vector3.down * pesoCaida;
+                personaje.GetComponent<Rigidbody>().velocity = new Vector3(0, Time.deltaTime+pesoCaida, 0);
+
+            }
+            else {
 				
 			}
 			//transform.Translate(Vector3.up*jumpDistance);
