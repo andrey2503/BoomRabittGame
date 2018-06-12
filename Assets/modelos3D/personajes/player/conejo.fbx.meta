@@ -1,16 +1,56 @@
 fileFormatVersion: 2
-guid: 302f8d2d9b3e885498c16521ab4768a5
-timeCreated: 1526750789
+guid: e7fee2c8452052d4799acc6d33acaa02
+timeCreated: 1528763139
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: group
+    100004: group1
+    100006: mano:group_pasted__pasted__mmGroup8
+    100008: mmGroup8
+    100010: mmGroup9
+    100012: pasted__group_pasted__pasted__mmGroup8
+    100014: pasted__mmGroup8
+    100016: pasted__pSphere3
+    100018: pasted__pSphere5
+    100020: transform1
+    100022: transform2
     400000: //RootNode
-    2100000: lambert2
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pCube13
+    400002: group
+    400004: group1
+    400006: mano:group_pasted__pasted__mmGroup8
+    400008: mmGroup8
+    400010: mmGroup9
+    400012: pasted__group_pasted__pasted__mmGroup8
+    400014: pasted__mmGroup8
+    400016: pasted__pSphere3
+    400018: pasted__pSphere5
+    400020: transform1
+    400022: transform2
+    2100000: guantes
+    2100002: ojos
+    2100004: lambert1
+    2100006: pasted__pasted__pasted__lambert12
+    2100008: pasted__pasted__pasted__lambert14
+    2100010: cuero
+    2100012: faja
+    2300000: mano:group_pasted__pasted__mmGroup8
+    2300002: mmGroup9
+    2300004: pasted__mmGroup8
+    2300006: pasted__pSphere3
+    2300008: pasted__pSphere5
+    3300000: mano:group_pasted__pasted__mmGroup8
+    3300002: mmGroup9
+    3300004: pasted__mmGroup8
+    3300006: pasted__pSphere3
+    3300008: pasted__pSphere5
+    4300000: mano:group_pasted__pasted__mmGroup8
+    4300002: pasted__pSphere3
+    4300004: pasted__pSphere5
+    4300006: mmGroup9
+    4300008: pasted__mmGroup8
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -42,7 +82,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -63,8 +103,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 180
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

@@ -55,7 +55,18 @@ public class Player_engine : MonoBehaviour {
 	public Vector3 getPosition(){
 		return transform.position;
 	}
+	public float tiempo=0.5f;
+	private IEnumerator addFuerzaCaer(){
+		
+		yield return new WaitForSeconds (tiempo);
+		Debug.Log ("Add force hacia abajo");
+		//personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0, pesoCaida, 0),ForceMode.Impulse);
+		personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0, pesoCaida, 0),ForceMode.Impulse);
 
+
+
+	}// fin de addfuerzacaer
+	public float retrocesosalto=2;
 	private IEnumerator nuevoSalto(Vector3 direccion){
 		bool jumping = false;
 		jumping = true;
@@ -67,17 +78,18 @@ public class Player_engine : MonoBehaviour {
 			if (jumpProgress > 1) {
 				jumping = false;
 				jumpProgress = 1;
-				Debug.Log ("Add force hacia abajo");
 				//personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0,pesoCaida,0), ForceMode.Impulse);
+				//personaje.GetComponent<Rigidbody>().velocity = new Vector3(0, pesoCaida, 0);
 				//personaje.GetComponent<Rigidbody> ().velocity = Vector3.down * pesoCaida;
-                personaje.GetComponent<Rigidbody>().velocity = new Vector3(0, Time.deltaTime+pesoCaida, 0);
+				personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0,retrocesosalto, 0),ForceMode.Impulse);
+  				StartCoroutine(addFuerzaCaer());
 
             }
             else {
 				
 			}
-			//transform.Translate(Vector3.up*jumpDistance);
-			personaje.GetComponent<Rigidbody> ().velocity = Vector3.up * jumpDistance;
+			transform.Translate(Vector3.up*jumpDistance);
+			//personaje.GetComponent<Rigidbody> ().velocity = Vector3.up * jumpDistance;
 			//personaje.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpDistance);
 			contador++;
 			time += Time.deltaTime;
