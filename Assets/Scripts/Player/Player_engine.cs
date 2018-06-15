@@ -9,11 +9,6 @@ public class Player_engine : MonoBehaviour {
 	public float mover=0.50f;
 	public bool subirMovimiento = true;
 	public bool saltando = false;
-
-	public float jumpDuration = 0.3f;
-	public float jumpDistance = 0.2f;
-
-	public int pesoCaida = -1;
 	public float velocidadDeMovimiento = 5f;
 	// Use this for initialization
 	void Awake(){
@@ -27,76 +22,27 @@ public class Player_engine : MonoBehaviour {
 	void Start () {
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 	public float getVelocityPostY (){
 		return  personaje.GetComponent<Rigidbody> ().velocity.y;
 	}
 
 	public void MoverDerecha(){
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x+mover,personaje.transform.position.y,personaje.transform.position.z);
-		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(velocidadDeMovimiento,getVelocityPostY(), 0f );
+		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(mover,getVelocityPostY(), 0f );
 	}//fin de mover derecha
 
 	public void MoverIzquierda(){
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x-mover,personaje.transform.position.y,personaje.transform.position.z);
-		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(-velocidadDeMovimiento, getVelocityPostY(), 0f );
+		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(-mover, getVelocityPostY(), 0f );
 	}//fin de mover izquierda
 
 	public void Salto(){
-		Vector3 saltoArriba = (transform.up) * jumpDistance;
-		Debug.Log (saltoArriba);
-		StartCoroutine (nuevoSalto(saltoArriba));
+		nuevoSalto ();
 	}//fin de salto
 
 	public Vector3 getPosition(){
 		return transform.position;
 	}
-	public float tiempo=0.5f;
-	private IEnumerator addFuerzaCaer(){
-		
-		yield return new WaitForSeconds (tiempo);
-		Debug.Log ("Add force hacia abajo");
-		//personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0, pesoCaida, 0),ForceMode.Impulse);
-		personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0, pesoCaida, 0),ForceMode.Impulse);
-
-
-
-	}// fin de addfuerzacaer
-	public float retrocesosalto=2;
-	private IEnumerator nuevoSalto(Vector3 direccion){
-		bool jumping = false;
-		jumping = true;
-		float time = 0;
-		float jumpProgress = 0;
-		int contador = 0;
-		while(jumping){
-			jumpProgress = time / jumpDuration;
-			if (jumpProgress > 1) {
-				jumping = false;
-				jumpProgress = 1;
-				//personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0,pesoCaida,0), ForceMode.Impulse);
-				//personaje.GetComponent<Rigidbody>().velocity = new Vector3(0, pesoCaida, 0);
-				//personaje.GetComponent<Rigidbody> ().velocity = Vector3.down * pesoCaida;
-				personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(0,retrocesosalto, 0),ForceMode.Impulse);
-  				StartCoroutine(addFuerzaCaer());
-
-            }
-            else {
-				
-			}
-			transform.Translate(Vector3.up*jumpDistance);
-			//personaje.GetComponent<Rigidbody> ().velocity = Vector3.up * jumpDistance;
-			//personaje.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpDistance);
-			contador++;
-			time += Time.deltaTime;
-			yield return null;
-		}// fin del while
-	}// fin de nuevoSalto
-
 	public float getPosX(){
 		return personaje.transform.position.x;
 	}// fin de getPosx()
@@ -111,7 +57,7 @@ public class Player_engine : MonoBehaviour {
 		personaje.transform.position = new Vector3 (0,2,0);
 	}
 	public void personajeDetenido(){
-		this.mover = 0.07f;
+		this.mover = 2f;
 		subirMovimiento = false;
 		StopCoroutine (SubirVelocidadMovimiento());
 	}// fin de personajeDetenido
@@ -120,7 +66,7 @@ public class Player_engine : MonoBehaviour {
 			StartCoroutine(SubirVelocidadMovimiento());
 	}//
 	private IEnumerator SubirVelocidadMovimiento(){
-			yield return new WaitForSeconds (0.1f);
+			yield return new WaitForSeconds (0f);
 			actualizarVelocidad ();
 
 	}// fin de subirVelocidadMovimeinto
@@ -135,9 +81,9 @@ public class Player_engine : MonoBehaviour {
 
 	public void actualizarVelocidad(){
 		
-		if (this.mover < 0.10f) {
+		if (this.mover < velocidadDeMovimiento) {
 			if(subirMovimiento){
-			this.mover += 0.02f;
+			this.mover += 1f;
 			}
 			moviendose ();
 			//Debug.Log ("Subiendo velocidad de movimineto");
@@ -154,5 +100,28 @@ public class Player_engine : MonoBehaviour {
 			personaje.GetComponent<Rigidbody> ().AddForce (transform.right * -9, ForceMode.Impulse);
 		}
 		Player_Inputs.instance.HabilitarInputs ();
-		}
-}
+		}// fin de choque enemigo
+	public float fuerzaDetenerSubido=-5f;
+	public float velocidadDetenerSubida=0.5f;
+	public IEnumerator fuerzaDetenida(){
+		yield return new WaitForSeconds (velocidadDetenerSubida);
+		personaje.GetComponent<Rigidbody> ().AddForce (new Vector2(0,fuerzaDetenerSubido), ForceMode.Impulse);
+		StartCoroutine (fuerzaCaida());
+	}// fin de fuerzaDetenida
+
+	public float velidadCaida=0.5f;
+	public float fuerzaCaidas = -5;
+	public IEnumerator fuerzaCaida(){
+		yield return new WaitForSeconds (velidadCaida);
+		personaje.GetComponent<Rigidbody> ().AddForce (new Vector2(0,fuerzaCaidas), ForceMode.Impulse);
+	}
+
+	public float nuevosalto=10f;
+	private void nuevoSalto(){
+		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
+		//personaje.GetComponent<Rigidbody> ().velocity = new Vector3 (0,nuevosalto,0);
+		StartCoroutine (fuerzaDetenida());
+	}// fin de nuevoSalto
+
+
+}// fin de la clase

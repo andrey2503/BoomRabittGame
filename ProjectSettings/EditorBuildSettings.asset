@@ -12,26 +12,14 @@ EditorBuildSettings:
     path: Assets/escenas/Integrantes.unity
     guid: 07a078c7378b7c24191af633b78f8d07
   - enabled: 1
-    path: Assets/escenas/MenuPrincipal.unity
-    guid: 63a164d3232ddf944aa83fbfc443d36e
-  - enabled: 1
     path: Assets/escenas/GameOver.unity
     guid: fa0ebb02b605d7b43a14d4ee1f94a0e0
   - enabled: 1
     path: Assets/escenas/Win.unity
     guid: aa4d5ebbe77e90f4fb2189ef8bf17804
   - enabled: 1
-    path: Assets/escenas/mecanica_salto.unity
-    guid: 4b5677730f51b82489474692a74e53f1
+    path: Assets/escenas/escenario_nivel_1.unity
+    guid: 36aaeebadb2b92546aa15592c0ef26ac
   - enabled: 1
-    path: Assets/escenas/mecanica_muerte_precipicio.unity
-    guid: 552268abef6f73044a5d5e1bbe14d786
-  - enabled: 1
-    path: Assets/escenas/mecanica_enemigo_topo.unity
-    guid: a8a3024b7fbcc22499ae89c57308e61a
-  - enabled: 1
-    path: Assets/escenas/mecanica_salto_muerte_precipicio.unity
-    guid: 0a8a21b21bdb520458d364abf59d61f6
-  - enabled: 1
-    path: Assets/escenas/mecanica_zanahoria_puntos.unity
-    guid: 1fe60ca084ad0634aaeae36eb5544a70
+    path: Assets/escenas/escenario_nivel_2.unity
+    guid: 9e20ba808566a0942bdad4933c59d844
