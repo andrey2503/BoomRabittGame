@@ -10,6 +10,7 @@ public class Player_engine : MonoBehaviour {
 	public bool subirMovimiento = true;
 	public bool saltando = false;
 	public float velocidadDeMovimiento = 5f;
+	public bool dobleSanto=false;
 	// Use this for initialization
 	void Awake(){
 		if(Player_engine.instance == null){
@@ -119,9 +120,16 @@ public class Player_engine : MonoBehaviour {
 	public float nuevosalto=10f;
 	private void nuevoSalto(){
 		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
-		//personaje.GetComponent<Rigidbody> ().velocity = new Vector3 (0,nuevosalto,0);
 		StartCoroutine (fuerzaDetenida());
 	}// fin de nuevoSalto
 
+	public void activarDobleSalto(){
+		dobleSanto = true;
+	}
+
+	public IEnumerator fuerzaDobleSalto(){
+		yield return null;
+		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
+	}//fin de fuerzaDobleSalto
 
 }// fin de la clase

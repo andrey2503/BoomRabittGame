@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136054847325085956}
   - component: {fileID: 23654953009125858}
   - component: {fileID: 114132907661188440}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pre_zanahorita_puntos
   m_TagString: zanahoria_punto
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018069765586682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.524, y: -0.049, z: -0.117910385}
-  m_LocalScale: {x: 0.44734764, y: 0.4584731, z: 1}
+  m_LocalPosition: {x: 1.71, y: -0.892661, z: -0.4289}
+  m_LocalScale: {x: 0.4473477, y: 0.4584731, z: 0.37804306}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
