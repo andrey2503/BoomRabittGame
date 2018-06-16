@@ -53,10 +53,8 @@ public class Player_Inputs : MonoBehaviour {
 			}
 			if (Input.GetKeyDown (KeyCode.UpArrow)) {
 				//Player_engine.instance.Salto ();
-				if (Player_jump.instance.verificar_suerlo ()) {
+				if(Player_jump.instance.verificar_suerlo ()){
 					Player_engine.instance.Salto ();
-				} else {
-					Player_engine.instance.activarDobleSalto ();
 				}
 			}// fin de input space
 			if(Input.GetKeyDown("space")){

@@ -10,7 +10,6 @@ public class Player_engine : MonoBehaviour {
 	public bool subirMovimiento = true;
 	public bool saltando = false;
 	public float velocidadDeMovimiento = 5f;
-	public bool dobleSanto=false;
 	// Use this for initialization
 	void Awake(){
 		if(Player_engine.instance == null){
@@ -93,14 +92,12 @@ public class Player_engine : MonoBehaviour {
 		}
 	}// fin de actualizar velocidad
 
-	public float fuerzaRebote=20f;
+
 	public void choqueEnemigo(int direccion){
 		if (direccion == 1) {
-			//personaje.GetComponent<Rigidbody> ().AddForce (transform.right * fuerzaRebote, ForceMode.Impulse);
-			personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(fuerzaRebote,0,0),ForceMode.Impulse);
+			personaje.GetComponent<Rigidbody> ().AddForce (transform.right * 9, ForceMode.Impulse);
 		} else {
-			personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(-fuerzaRebote,0,0),ForceMode.Impulse);
-			//personaje.GetComponent<Rigidbody> ().AddForce (transform.right * -fuerzaRebote, ForceMode.Impulse);
+			personaje.GetComponent<Rigidbody> ().AddForce (transform.right * -9, ForceMode.Impulse);
 		}
 		Player_Inputs.instance.HabilitarInputs ();
 		}// fin de choque enemigo
@@ -122,16 +119,9 @@ public class Player_engine : MonoBehaviour {
 	public float nuevosalto=10f;
 	private void nuevoSalto(){
 		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
+		//personaje.GetComponent<Rigidbody> ().velocity = new Vector3 (0,nuevosalto,0);
 		StartCoroutine (fuerzaDetenida());
 	}// fin de nuevoSalto
 
-	public void activarDobleSalto(){
-		dobleSanto = true;
-	}
-
-	public IEnumerator fuerzaDobleSalto(){
-		yield return null;
-		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
-	}//fin de fuerzaDobleSalto
 
 }// fin de la clase
