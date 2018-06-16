@@ -93,12 +93,14 @@ public class Player_engine : MonoBehaviour {
 		}
 	}// fin de actualizar velocidad
 
-
+	public float fuerzaRebote=20f;
 	public void choqueEnemigo(int direccion){
 		if (direccion == 1) {
-			personaje.GetComponent<Rigidbody> ().AddForce (transform.right * 9, ForceMode.Impulse);
+			//personaje.GetComponent<Rigidbody> ().AddForce (transform.right * fuerzaRebote, ForceMode.Impulse);
+			personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(fuerzaRebote,0,0),ForceMode.Impulse);
 		} else {
-			personaje.GetComponent<Rigidbody> ().AddForce (transform.right * -9, ForceMode.Impulse);
+			personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(-fuerzaRebote,0,0),ForceMode.Impulse);
+			//personaje.GetComponent<Rigidbody> ().AddForce (transform.right * -fuerzaRebote, ForceMode.Impulse);
 		}
 		Player_Inputs.instance.HabilitarInputs ();
 		}// fin de choque enemigo

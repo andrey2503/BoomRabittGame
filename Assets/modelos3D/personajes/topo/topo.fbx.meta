@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: 56a26c2d4e82c4f489a73f05f706f2f4
+timeCreated: 1529126414
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Chest_M
+    100006: Cup_L
+    100008: Cup_R
+    100010: DeformationSystem
+    100012: Elbow_L
+    100014: Elbow_R
+    100016: ElbowPart1_L
+    100018: ElbowPart1_R
+    100020: ElbowPart2_L
+    100022: ElbowPart2_R
+    100024: geo
+    100026: Group
+    100028: Head_M
+    100030: Hip_L
+    100032: Hip_R
+    100034: HipPart1_L
+    100036: HipPart1_R
+    100038: HipPart2_L
+    100040: HipPart2_R
+    100042: IndexFinger1_L
+    100044: IndexFinger1_R
+    100046: IndexFinger2_L
+    100048: IndexFinger2_R
+    100050: IndexFinger3_L
+    100052: IndexFinger3_R
+    100054: Knee_L
+    100056: Knee_R
+    100058: Main
+    100060: MiddleFinger1_L
+    100062: MiddleFinger1_R
+    100064: MiddleFinger2_L
+    100066: MiddleFinger2_R
+    100068: MiddleFinger3_L
+    100070: MiddleFinger3_R
+    100072: Neck_M
+    100074: NeckPart1_M
+    100076: NeckPart2_M
+    100078: RingFinger1_L
+    100080: RingFinger1_R
+    100082: RingFinger2_L
+    100084: RingFinger2_R
+    100086: RingFinger3_L
+    100088: RingFinger3_R
+    100090: Root_M
+    100092: RootPart1_M
+    100094: RootPart2_M
+    100096: Scapula_L
+    100098: Scapula_R
+    100100: Shoulder_L
+    100102: Shoulder_R
+    100104: ShoulderPart1_L
+    100106: ShoulderPart1_R
+    100108: ShoulderPart2_L
+    100110: ShoulderPart2_R
+    100112: Spine1_M
+    100114: Spine1Part1_M
+    100116: Spine1Part2_M
+    100118: Toes_L
+    100120: Toes_R
+    100122: //RootNode
+    100124: "topo_peque\xF1o_modelado:ojo:pSphere2"
+    100126: "topo_peque\xF1o_modelado:ojo:pSphere4"
+    100128: "topo_peque\xF1o_modelado:ojo:pSphere5"
+    100130: "topo_peque\xF1o_modelado:ojo:pSphere6"
+    100132: "topo_peque\xF1o_modelado:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+    100134: Wrist_L
+    100136: Wrist_R
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Chest_M
+    400006: Cup_L
+    400008: Cup_R
+    400010: DeformationSystem
+    400012: Elbow_L
+    400014: Elbow_R
+    400016: ElbowPart1_L
+    400018: ElbowPart1_R
+    400020: ElbowPart2_L
+    400022: ElbowPart2_R
+    400024: geo
+    400026: Group
+    400028: Head_M
+    400030: Hip_L
+    400032: Hip_R
+    400034: HipPart1_L
+    400036: HipPart1_R
+    400038: HipPart2_L
+    400040: HipPart2_R
+    400042: IndexFinger1_L
+    400044: IndexFinger1_R
+    400046: IndexFinger2_L
+    400048: IndexFinger2_R
+    400050: IndexFinger3_L
+    400052: IndexFinger3_R
+    400054: Knee_L
+    400056: Knee_R
+    400058: Main
+    400060: MiddleFinger1_L
+    400062: MiddleFinger1_R
+    400064: MiddleFinger2_L
+    400066: MiddleFinger2_R
+    400068: MiddleFinger3_L
+    400070: MiddleFinger3_R
+    400072: Neck_M
+    400074: NeckPart1_M
+    400076: NeckPart2_M
+    400078: RingFinger1_L
+    400080: RingFinger1_R
+    400082: RingFinger2_L
+    400084: RingFinger2_R
+    400086: RingFinger3_L
+    400088: RingFinger3_R
+    400090: Root_M
+    400092: RootPart1_M
+    400094: RootPart2_M
+    400096: Scapula_L
+    400098: Scapula_R
+    400100: Shoulder_L
+    400102: Shoulder_R
+    400104: ShoulderPart1_L
+    400106: ShoulderPart1_R
+    400108: ShoulderPart2_L
+    400110: ShoulderPart2_R
+    400112: Spine1_M
+    400114: Spine1Part1_M
+    400116: Spine1Part2_M
+    400118: Toes_L
+    400120: Toes_R
+    400122: //RootNode
+    400124: "topo_peque\xF1o_modelado:ojo:pSphere2"
+    400126: "topo_peque\xF1o_modelado:ojo:pSphere4"
+    400128: "topo_peque\xF1o_modelado:ojo:pSphere5"
+    400130: "topo_peque\xF1o_modelado:ojo:pSphere6"
+    400132: "topo_peque\xF1o_modelado:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+    400134: Wrist_L
+    400136: Wrist_R
+    2100000: "topo_peque\xF1o_modelado_lambert3"
+    2100002: lambert1
+    2100004: "topo_peque\xF1o_modelado_ojo_blinn1"
+    4300000: "topo_peque\xF1o_modelado:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+    4300002: "topo_peque\xF1o_modelado:ojo:pSphere2"
+    4300004: "topo_peque\xF1o_modelado:ojo:pSphere4"
+    4300006: "topo_peque\xF1o_modelado:ojo:pSphere5"
+    4300008: "topo_peque\xF1o_modelado:ojo:pSphere6"
+    9500000: //RootNode
+    13700000: "topo_peque\xF1o_modelado:ojo:pSphere2"
+    13700002: "topo_peque\xF1o_modelado:ojo:pSphere4"
+    13700004: "topo_peque\xF1o_modelado:ojo:pSphere5"
+    13700006: "topo_peque\xF1o_modelado:ojo:pSphere6"
+    13700008: "topo_peque\xF1o_modelado:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
