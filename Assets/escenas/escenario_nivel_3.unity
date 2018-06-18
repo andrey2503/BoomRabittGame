@@ -6218,6 +6218,7 @@ GameObject:
   - component: {fileID: 1879904010}
   - component: {fileID: 1879904009}
   - component: {fileID: 1879904008}
+  - component: {fileID: 1879904014}
   m_Layer: 10
   m_Name: player
   m_TagString: Player
@@ -6317,6 +6318,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1879904014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879904007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d89debd48fbaaf44b4cda0ccc980297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 100
+  slideVida: {fileID: 1222696108}
 --- !u!1001 &1909913990
 Prefab:
   m_ObjectHideFlags: 0
