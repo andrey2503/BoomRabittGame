@@ -13,6 +13,7 @@ public class Player_life : MonoBehaviour {
 		}else{
 			Destroy (this.gameObject);
 		}// else
+		Debug.Log("Inicio de sistema");
 
 	}// fin del Awake
 
