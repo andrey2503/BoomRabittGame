@@ -33,8 +33,12 @@ public class Player_engine : MonoBehaviour {
 	public void MoverDerecha(){
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x+mover,personaje.transform.position.y,personaje.transform.position.z);
 		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(mover,getVelocityPostY(), 0f );
-        anim.SetInteger("estado",1);
         animatedChar.transform.localScale = new Vector3(1,1,1);
+		if (saltando) {
+			anim.SetInteger("estado",4);
+		} else {
+			anim.SetInteger("estado",1);
+		}
 
     }//fin de mover derecha
 
@@ -42,8 +46,13 @@ public class Player_engine : MonoBehaviour {
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x-mover,personaje.transform.position.y,personaje.transform.position.z);
 		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(-mover, getVelocityPostY(), 0f );
        // anim.SetInteger("estado", 1);
-		anim.SetInteger("estado",1);
+
         animatedChar.transform.localScale = new Vector3(1, 1, -1);
+		if (saltando) {
+			anim.SetInteger("estado",4);
+		} else {
+			anim.SetInteger("estado",1);
+		}
     }//fin de mover izquierda
 
 	public void Salto(){
@@ -131,6 +140,7 @@ public class Player_engine : MonoBehaviour {
 	public IEnumerator fuerzaCaida(){
 		yield return new WaitForSeconds (velidadCaida);
 		personaje.GetComponent<Rigidbody> ().AddForce (new Vector2(0,fuerzaCaidas), ForceMode.Impulse);
+		saltando = false;
 	}
 
 	public float nuevosalto=10f;

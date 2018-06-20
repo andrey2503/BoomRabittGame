@@ -685,6 +685,7 @@ MonoBehaviour:
   velidadCaida: 0.5
   fuerzaCaidas: -5
   nuevosalto: 10
+  fuerzaDobleSalto: 2
 --- !u!114 &163355075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,6 +3616,7 @@ MonoBehaviour:
   velidadCaida: 0.2
   fuerzaCaidas: -3.2
   nuevosalto: 9.5
+  fuerzaDobleSalto: 8
 --- !u!114 &985473400
 MonoBehaviour:
   m_ObjectHideFlags: 0
