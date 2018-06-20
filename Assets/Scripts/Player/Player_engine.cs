@@ -41,12 +41,15 @@ public class Player_engine : MonoBehaviour {
 	public void MoverIzquierda(){
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x-mover,personaje.transform.position.y,personaje.transform.position.z);
 		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(-mover, getVelocityPostY(), 0f );
-        anim.SetInteger("estado", 1);
+       // anim.SetInteger("estado", 1);
+		anim.SetInteger("estado",1);
         animatedChar.transform.localScale = new Vector3(1, 1, -1);
     }//fin de mover izquierda
 
 	public void Salto(){
+		anim.SetInteger("estado",2);
 		nuevoSalto ();
+		dobleSanto = true;
 	}//fin de salto
 
 	public Vector3 getPosition(){
@@ -69,7 +72,10 @@ public class Player_engine : MonoBehaviour {
 		this.mover = 2f;
 		subirMovimiento = false;
 		StopCoroutine (SubirVelocidadMovimiento());
-        anim.SetInteger("estado", 0);
+		anim.SetInteger ("estado", 0);
+		//if (saltando) {
+		//	anim.SetInteger ("estado", 0);
+		//} 
     }// fin de personajeDetenido
 
 	public void moviendose(){
@@ -96,7 +102,6 @@ public class Player_engine : MonoBehaviour {
 			this.mover += 1f;
 			}
 			moviendose ();
-			//Debug.Log ("Subiendo velocidad de movimineto");
 		} else {
 			StopCoroutine (SubirVelocidadMovimiento());
 		}
@@ -130,19 +135,20 @@ public class Player_engine : MonoBehaviour {
 
 	public float nuevosalto=10f;
 	private void nuevoSalto(){
+		saltando = true;
 		Debug.Log ("animando salto");
 		anim.SetInteger("estado",2);
 		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
 		StartCoroutine (fuerzaDetenida());
 	}// fin de nuevoSalto
 
+	public float fuerzaDobleSalto=2f;
 	public void activarDobleSalto(){
-		dobleSanto = true;
+		if(dobleSanto){
+			personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,fuerzaDobleSalto),ForceMode.Impulse);
+			dobleSanto = false;
+			StartCoroutine (fuerzaDetenida());
+		}
 	}
-
-	public IEnumerator fuerzaDobleSalto(){
-		yield return null;
-		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
-	}//fin de fuerzaDobleSalto
 
 }// fin de la clase
