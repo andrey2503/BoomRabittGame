@@ -11,11 +11,11 @@ public class CambioEscena : MonoBehaviour {
 	public float tiempoEspera = 3f;
 
 	void Awake(){
-		if(CambioEscena.instance==null){
+		//if(CambioEscena.instance==null){
 			CambioEscena.instance = this;
-		}else{
-			Destroy (this.gameObject);
-		}
+		//}else{
+		//	Destroy (this.gameObject);
+		//}
 	}
 	// Use this for initialization
 

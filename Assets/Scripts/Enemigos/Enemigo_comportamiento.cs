@@ -50,10 +50,10 @@ public class Enemigo_comportamiento : MonoBehaviour {
 		distancia = Vector3.Distance (transformpersonaje,transform.position);
 		if (distancia < 3) {
 			Vector3 v3 = transformpersonaje - transform.position;
-
 			if (v3.x > 0.1) {
 				//Debug.Log ("personaje esta a la derecha y la direccion es "+ direccion);
 				muerteEnemigo (direccion,1);
+
 				//velocidadMovimiento = 3;
 			} else {
 				//Debug.Log ("personaje esta a la izquierda y la direccion es "+ direccion);
@@ -71,8 +71,10 @@ public class Enemigo_comportamiento : MonoBehaviour {
 		buscandoJugador ();
 		if (direccion == 1) {
 			transform.position = new Vector3(transform.position.x+(velocidadMovimiento*Time.deltaTime),transform.position.y,transform.position.z );
+			transform.localScale = new Vector3 (50,50,-50);
 		} else {
 			transform.position = new Vector3(transform.position.x-(velocidadMovimiento*Time.deltaTime),transform.position.y,transform.position.z );
+			transform.localScale = new Vector3 (50,50,50);
 		}
 	}// fin de enemigo buscando
 		

@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: b0e11a8b27c95974895cb5bba1e9a8f7
+timeCreated: 1529459164
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Chest_M
+    100006: Cup_L
+    100008: Cup_R
+    100010: DeformationSystem
+    100012: Elbow_L
+    100014: Elbow_R
+    100016: ElbowPart1_L
+    100018: ElbowPart1_R
+    100020: ElbowPart2_L
+    100022: ElbowPart2_R
+    100024: Group
+    100026: Head_M
+    100028: Hip_L
+    100030: Hip_R
+    100032: HipPart1_L
+    100034: HipPart1_R
+    100036: HipPart2_L
+    100038: HipPart2_R
+    100040: IndexFinger1_L
+    100042: IndexFinger1_R
+    100044: IndexFinger2_L
+    100046: IndexFinger2_R
+    100048: IndexFinger3_L
+    100050: IndexFinger3_R
+    100052: Knee_L
+    100054: Knee_R
+    100056: Main
+    100058: MiddleFinger1_L
+    100060: MiddleFinger1_R
+    100062: MiddleFinger2_L
+    100064: MiddleFinger2_R
+    100066: MiddleFinger3_L
+    100068: MiddleFinger3_R
+    100070: model:geo
+    100072: model:ojo:pSphere2
+    100074: model:ojo:pSphere4
+    100076: model:ojo:pSphere5
+    100078: model:ojo:pSphere6
+    100080: "model:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+    100082: Neck_M
+    100084: NeckPart1_M
+    100086: NeckPart2_M
+    100088: RingFinger1_L
+    100090: RingFinger1_R
+    100092: RingFinger2_L
+    100094: RingFinger2_R
+    100096: RingFinger3_L
+    100098: RingFinger3_R
+    100100: Root_M
+    100102: RootPart1_M
+    100104: RootPart2_M
+    100106: Scapula_L
+    100108: Scapula_R
+    100110: Shoulder_L
+    100112: Shoulder_R
+    100114: ShoulderPart1_L
+    100116: ShoulderPart1_R
+    100118: ShoulderPart2_L
+    100120: ShoulderPart2_R
+    100122: Spine1_M
+    100124: Spine1Part1_M
+    100126: Spine1Part2_M
+    100128: Toes_L
+    100130: Toes_R
+    100132: //RootNode
+    100134: Wrist_L
+    100136: Wrist_R
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Chest_M
+    400006: Cup_L
+    400008: Cup_R
+    400010: DeformationSystem
+    400012: Elbow_L
+    400014: Elbow_R
+    400016: ElbowPart1_L
+    400018: ElbowPart1_R
+    400020: ElbowPart2_L
+    400022: ElbowPart2_R
+    400024: Group
+    400026: Head_M
+    400028: Hip_L
+    400030: Hip_R
+    400032: HipPart1_L
+    400034: HipPart1_R
+    400036: HipPart2_L
+    400038: HipPart2_R
+    400040: IndexFinger1_L
+    400042: IndexFinger1_R
+    400044: IndexFinger2_L
+    400046: IndexFinger2_R
+    400048: IndexFinger3_L
+    400050: IndexFinger3_R
+    400052: Knee_L
+    400054: Knee_R
+    400056: Main
+    400058: MiddleFinger1_L
+    400060: MiddleFinger1_R
+    400062: MiddleFinger2_L
+    400064: MiddleFinger2_R
+    400066: MiddleFinger3_L
+    400068: MiddleFinger3_R
+    400070: model:geo
+    400072: model:ojo:pSphere2
+    400074: model:ojo:pSphere4
+    400076: model:ojo:pSphere5
+    400078: model:ojo:pSphere6
+    400080: "model:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+    400082: Neck_M
+    400084: NeckPart1_M
+    400086: NeckPart2_M
+    400088: RingFinger1_L
+    400090: RingFinger1_R
+    400092: RingFinger2_L
+    400094: RingFinger2_R
+    400096: RingFinger3_L
+    400098: RingFinger3_R
+    400100: Root_M
+    400102: RootPart1_M
+    400104: RootPart2_M
+    400106: Scapula_L
+    400108: Scapula_R
+    400110: Shoulder_L
+    400112: Shoulder_R
+    400114: ShoulderPart1_L
+    400116: ShoulderPart1_R
+    400118: ShoulderPart2_L
+    400120: ShoulderPart2_R
+    400122: Spine1_M
+    400124: Spine1Part1_M
+    400126: Spine1Part2_M
+    400128: Toes_L
+    400130: Toes_R
+    400132: //RootNode
+    400134: Wrist_L
+    400136: Wrist_R
+    2100000: model_material_topo_final
+    2100002: lambert1
+    2100004: model_ojo_blinn1
+    4300000: "model:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+    4300002: model:ojo:pSphere2
+    4300004: model:ojo:pSphere4
+    4300006: model:ojo:pSphere5
+    4300008: model:ojo:pSphere6
+    9500000: //RootNode
+    13700000: model:ojo:pSphere2
+    13700002: model:ojo:pSphere4
+    13700004: model:ojo:pSphere5
+    13700006: model:ojo:pSphere6
+    13700008: "model:topo_peque\xF1o_arreglo_modelo_final:topo_peque\xF1o_arreglo_modelo_final:pCube24"
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

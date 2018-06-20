@@ -130,6 +130,8 @@ public class Player_engine : MonoBehaviour {
 
 	public float nuevosalto=10f;
 	private void nuevoSalto(){
+		Debug.Log ("animando salto");
+		anim.SetInteger("estado",2);
 		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
 		StartCoroutine (fuerzaDetenida());
 	}// fin de nuevoSalto
