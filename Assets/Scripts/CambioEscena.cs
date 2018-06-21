@@ -7,7 +7,7 @@ public class CambioEscena : MonoBehaviour {
 	public static CambioEscena instance;
 	public int indiceEscena =  0 ;
 	// public bool timer = false;
-	public bool timer = true;	
+	public bool timer = true;
 	public float tiempoEspera = 3f;
 
 	void Awake(){
@@ -30,9 +30,20 @@ public class CambioEscena : MonoBehaviour {
 		SceneManager.LoadScene (indiceEscena);
 	}
 
+	public void PlayAgain(){
+			Debug.Log ("play again");
+		SceneManager.LoadScene (indiceEscena);
+	}
+
+	public void BackToMenu(int escenaMenu){
+			Debug.Log ("Cambio de scene menu"+indiceEscena);
+		SceneManager.LoadScene (escenaMenu);
+	}
+
+
 	private IEnumerator SceneSwitcher(){
 		yield return new WaitForSeconds (tiempoEspera);
-		Debug.Log ("Cambio de scene");
+		Debug.Log ("Cambio de scene"+indiceEscena);
 		SceneManager.LoadScene (indiceEscena);
 	}
 
