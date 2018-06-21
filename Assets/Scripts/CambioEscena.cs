@@ -30,9 +30,8 @@ public class CambioEscena : MonoBehaviour {
 		SceneManager.LoadScene (indiceEscena);
 	}
 
-	public void PlayAgain(){
-			Debug.Log ("play again");
-		SceneManager.LoadScene (indiceEscena);
+	public void PlayAgain(int repetirescena){
+		SceneManager.LoadScene (repetirescena);
 	}
 
 	public void BackToMenu(int escenaMenu){

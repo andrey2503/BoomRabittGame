@@ -26,6 +26,7 @@ public class Player_dead : MonoBehaviour {
 		if(meta.gameObject.tag=="Player"){
 			Debug.Log ("Jugador ha muerto");
 			Player_engine.instance.resetPostPlayer ();
+			ControlMenus.instance.activarMenuRestart ();
 		}
 	}// OnTriggerEnter
 }

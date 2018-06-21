@@ -20,7 +20,9 @@ public class Player_life : MonoBehaviour {
 	public void disminuirVida(){
 		this.vida=this.vida-25;
 		slideVida.value = this.vida;
-		Debug.Log (this.vida);
+		if(this.vida<=0){
+			ControlMenus.instance.activarMenuRestart ();
+		}
 	}// fin de dismiuir Vida
 
 	public void muertePrecipicio(){

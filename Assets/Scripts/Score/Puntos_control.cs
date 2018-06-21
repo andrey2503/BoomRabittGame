@@ -15,7 +15,6 @@ public class Puntos_control : MonoBehaviour {
 	void Awake(){
 		if(Puntos_control.instance == null){
 			Puntos_control.instance = this;
-			DontDestroyOnLoad (this.gameObject);
 		}else{
 			Destroy (this.gameObject);
 		}// else
@@ -26,5 +25,9 @@ public class Puntos_control : MonoBehaviour {
 		puntos++;
 		texto_puntos.text = "Puntos: "+puntos;
 		Debug.Log (puntos);
+	}
+
+	public int getPuntos(){
+		return puntos;
 	}
 }

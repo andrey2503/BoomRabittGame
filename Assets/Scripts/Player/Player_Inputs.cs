@@ -81,4 +81,8 @@ public class Player_Inputs : MonoBehaviour {
 		yield return new WaitForSeconds (0.5f);
 		activo = true;
 	}// fin de subirVelocidadMovimeinto
+
+	public void inhabilitarInputs(){
+		activo = false;
+	}
 }
