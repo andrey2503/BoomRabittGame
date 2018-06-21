@@ -155,8 +155,8 @@ public class Player_engine : MonoBehaviour {
 	public float fuerzaDobleSalto=2f;
 	public void activarDobleSalto(){
 		if(dobleSanto){
-			personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,fuerzaDobleSalto),ForceMode.Impulse);
 			dobleSanto = false;
+			personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,fuerzaDobleSalto),ForceMode.Impulse);
 			StartCoroutine (fuerzaDetenida());
 		}
 	}

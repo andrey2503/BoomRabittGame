@@ -15,6 +15,7 @@ public class Puntos_control : MonoBehaviour {
 	void Awake(){
 		if(Puntos_control.instance == null){
 			Puntos_control.instance = this;
+			DontDestroyOnLoad (this.gameObject);
 		}else{
 			Destroy (this.gameObject);
 		}// else
