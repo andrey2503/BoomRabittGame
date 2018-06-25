@@ -10,7 +10,7 @@ public class Player_engine : MonoBehaviour {
 	public bool subirMovimiento = true;
 	public bool saltando = false;
 	public float velocidadDeMovimiento = 5f;
-	public bool dobleSanto=false;
+	public int dobleSalto=1;
     public Animator anim;
     public GameObject animatedChar;
 
@@ -57,9 +57,16 @@ public class Player_engine : MonoBehaviour {
 
 	public void Salto(){
 		anim.SetInteger("estado",2);
+		StartCoroutine (tiempoDobleSalto());
 		nuevoSalto ();
-		dobleSanto = true;
 	}//fin de salto
+	public float tiempoActivarDobleSalto=0.5f;
+	IEnumerator tiempoDobleSalto(){
+		yield return new WaitForSeconds (tiempoActivarDobleSalto);
+		dobleSalto = 0;
+		Debug.Log ("ya se puede hacer el doble salto");
+
+	}
 
 	public Vector3 getPosition(){
 		return transform.position;
@@ -102,6 +109,7 @@ public class Player_engine : MonoBehaviour {
 
 	public void personajeEnSuelo(){
 		subirMovimiento = true;
+		dobleSalto = 1;
 	}// fin de personajeEnSuelo
 
 	public void actualizarVelocidad(){
@@ -119,14 +127,13 @@ public class Player_engine : MonoBehaviour {
 	public float fuerzaRebote=20f;
 	public void choqueEnemigo(int direccion){
 		if (direccion == 1) {
-			//personaje.GetComponent<Rigidbody> ().AddForce (transform.right * fuerzaRebote, ForceMode.Impulse);
 			personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(fuerzaRebote,0,0),ForceMode.Impulse);
 		} else {
 			personaje.GetComponent<Rigidbody> ().AddForce (new Vector3(-fuerzaRebote,0,0),ForceMode.Impulse);
-			//personaje.GetComponent<Rigidbody> ().AddForce (transform.right * -fuerzaRebote, ForceMode.Impulse);
 		}
 		Player_Inputs.instance.HabilitarInputs ();
 		}// fin de choque enemigo
+
 	public float fuerzaDetenerSubido=-5f;
 	public float velocidadDetenerSubida=0.5f;
 	public IEnumerator fuerzaDetenida(){
@@ -146,7 +153,6 @@ public class Player_engine : MonoBehaviour {
 	public float nuevosalto=10f;
 	private void nuevoSalto(){
 		saltando = true;
-		Debug.Log ("animando salto");
 		anim.SetInteger("estado",2);
 		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
 		StartCoroutine (fuerzaDetenida());
@@ -154,11 +160,16 @@ public class Player_engine : MonoBehaviour {
 
 	public float fuerzaDobleSalto=2f;
 	public void activarDobleSalto(){
-		if(dobleSanto){
-			dobleSanto = false;
+		Debug.Log ("activando doble salto"+dobleSalto);
+		if(dobleSalto==0){
+			dobleSalto++;
 			personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,fuerzaDobleSalto),ForceMode.Impulse);
 			StartCoroutine (fuerzaDetenida());
 		}
 	}
+
+	public void activarAtaque(){
+		anim.SetInteger("estado",6);
+	}//
 
 }// fin de la clase

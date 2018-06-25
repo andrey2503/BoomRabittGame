@@ -60,7 +60,9 @@ public class Player_Inputs : MonoBehaviour {
 				}
 			}// fin de input space
 			if(Input.GetKeyDown("space")){
-				Debug.Log( Player_ataque.instance.ataque (direccion));
+				//if(Player_ataque.instance.ataque (direccion)){
+					Player_engine.instance.activarAtaque ();
+				//}//player ataque if
 			}
 		}//if activo
 		else{
