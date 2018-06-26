@@ -8,11 +8,16 @@ public class Player_engine : MonoBehaviour {
 	public float salto=1;
 	public float mover=0.50f; 
 	public bool subirMovimiento = true;
-	public bool saltando = false;
 	public float velocidadDeMovimiento = 5f;
 	public int dobleSalto=1;
     public Animator anim;
     public GameObject animatedChar;
+
+
+	//estados de animacion
+	bool personajeMoviendoce=false;
+	public bool personajeSaltando = false;
+
 
 	// Use this for initialization
 	void Awake(){
@@ -34,11 +39,13 @@ public class Player_engine : MonoBehaviour {
 		//personaje.transform.position = new Vector3 (personaje.transform.position.x+mover,personaje.transform.position.y,personaje.transform.position.z);
 		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(mover,getVelocityPostY(), 0f );
         animatedChar.transform.localScale = new Vector3(1,1,1);
-		if (saltando) {
+		/*if (personajeSaltando) {
 			anim.SetInteger("estado",4);
 		} else {
 			anim.SetInteger("estado",1);
 		}
+		*/
+		personajeMoviendoce = true;
 
     }//fin de mover derecha
 
@@ -48,11 +55,13 @@ public class Player_engine : MonoBehaviour {
        // anim.SetInteger("estado", 1);
 
         animatedChar.transform.localScale = new Vector3(1, 1, -1);
-		if (saltando) {
+		/*if (personajeSaltando) {
 			anim.SetInteger("estado",4);
 		} else {
 			anim.SetInteger("estado",1);
 		}
+		*/
+		personajeMoviendoce = true;
     }//fin de mover izquierda
 
 	public void Salto(){
@@ -64,7 +73,6 @@ public class Player_engine : MonoBehaviour {
 	IEnumerator tiempoDobleSalto(){
 		yield return new WaitForSeconds (tiempoActivarDobleSalto);
 		dobleSalto = 0;
-		Debug.Log ("ya se puede hacer el doble salto");
 
 	}
 
@@ -88,7 +96,7 @@ public class Player_engine : MonoBehaviour {
 		this.mover = 2f;
 		subirMovimiento = false;
 		StopCoroutine (SubirVelocidadMovimiento());
-		anim.SetInteger ("estado", 0);
+		personajeMoviendoce = false;
 		//if (saltando) {
 		//	anim.SetInteger ("estado", 0);
 		//} 
@@ -110,6 +118,20 @@ public class Player_engine : MonoBehaviour {
 	public void personajeEnSuelo(){
 		subirMovimiento = true;
 		dobleSalto = 1;
+
+		if (!personajeMoviendoce && !personajeSaltando) {
+			anim.SetInteger ("estado", 0);
+		} 
+		if(personajeMoviendoce && !personajeSaltando) {
+			anim.SetInteger ("estado", 1);
+		} 
+		if(personajeSaltando){
+			anim.SetInteger("estado",2);
+		}
+		if(personajeMoviendoce && personajeSaltando){
+			anim.SetInteger("estado",2);
+		}
+		Debug.Log ("cambiar animacion porque el personaje toco suelo");
 	}// fin de personajeEnSuelo
 
 	public void actualizarVelocidad(){
@@ -147,20 +169,19 @@ public class Player_engine : MonoBehaviour {
 	public IEnumerator fuerzaCaida(){
 		yield return new WaitForSeconds (velidadCaida);
 		personaje.GetComponent<Rigidbody> ().AddForce (new Vector2(0,fuerzaCaidas), ForceMode.Impulse);
-		saltando = false;
+		personajeSaltando = false;
 	}
 
 	public float nuevosalto=10f;
 	private void nuevoSalto(){
-		saltando = true;
-		anim.SetInteger("estado",2);
+		personajeSaltando = true;
+		//anim.SetInteger("estado",2);
 		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
 		StartCoroutine (fuerzaDetenida());
 	}// fin de nuevoSalto
 
 	public float fuerzaDobleSalto=2f;
 	public void activarDobleSalto(){
-		Debug.Log ("activando doble salto"+dobleSalto);
 		if(dobleSalto==0){
 			dobleSalto++;
 			personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,fuerzaDobleSalto),ForceMode.Impulse);

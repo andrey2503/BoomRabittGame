@@ -4821,16 +4821,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
-    - target: {fileID: 114219799139189292, guid: d73380ca36c2a604b90b734e352c4c93,
-        type: 2}
-      propertyPath: tiempoActivarDobleSalto
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114219799139189292, guid: d73380ca36c2a604b90b734e352c4c93,
-        type: 2}
-      propertyPath: dobleSalto
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d73380ca36c2a604b90b734e352c4c93, type: 2}
   m_IsPrefabParent: 0
