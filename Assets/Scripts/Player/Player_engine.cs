@@ -16,7 +16,8 @@ public class Player_engine : MonoBehaviour {
 
 	//estados de animacion
 	bool personajeMoviendoce=false;
-	public bool personajeSaltando = false;
+	bool personajeSaltando = false;
+	bool personajeAtacando= false;
 
 
 	// Use this for initialization
@@ -131,6 +132,10 @@ public class Player_engine : MonoBehaviour {
 		if(personajeMoviendoce && personajeSaltando){
 			anim.SetInteger("estado",2);
 		}
+		if(personajeAtacando){
+			anim.SetInteger("estado",6);
+			personajeAtacando = false;
+		}
 		Debug.Log ("cambiar animacion porque el personaje toco suelo");
 	}// fin de personajeEnSuelo
 
@@ -190,7 +195,9 @@ public class Player_engine : MonoBehaviour {
 	}
 
 	public void activarAtaque(){
-		anim.SetInteger("estado",6);
+		Debug.Log ("ataque");
+		personajeAtacando = true;
+
 	}//
 
 }// fin de la clase
