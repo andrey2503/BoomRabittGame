@@ -120,22 +120,27 @@ public class Player_engine : MonoBehaviour {
 		subirMovimiento = true;
 		dobleSalto = 1;
 
-		if (!personajeMoviendoce && !personajeSaltando) {
+		if (!personajeMoviendoce && !personajeSaltando && !personajeAtacando) {
 			anim.SetInteger ("estado", 0);
 		} 
-		if(personajeMoviendoce && !personajeSaltando) {
+		if(personajeMoviendoce && !personajeSaltando && !personajeAtacando) {
 			anim.SetInteger ("estado", 1);
 		} 
 		if(personajeSaltando){
 			anim.SetInteger("estado",2);
 		}
-		if(personajeMoviendoce && personajeSaltando){
+		if(personajeMoviendoce && personajeSaltando && !personajeAtacando){
 			anim.SetInteger("estado",2);
 		}
 		if(personajeAtacando){
 			anim.SetInteger("estado",6);
 			personajeAtacando = false;
 		}
+		if(personajeAtacando && personajeMoviendoce){
+			anim.SetInteger("estado",6);
+			personajeAtacando = false;
+		}
+		Debug.Log ("moviendoce: "+personajeMoviendoce+" saltando: "+personajeSaltando+" atacando: "+personajeAtacando);
 		Debug.Log ("cambiar animacion porque el personaje toco suelo");
 	}// fin de personajeEnSuelo
 
@@ -197,6 +202,7 @@ public class Player_engine : MonoBehaviour {
 	public void activarAtaque(){
 		Debug.Log ("ataque");
 		personajeAtacando = true;
+		Debug.Log ("ataque"+personajeAtacando);
 
 	}//
 
