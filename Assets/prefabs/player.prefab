@@ -1141,6 +1141,7 @@ GameObject:
   - component: {fileID: 54394281767979790}
   - component: {fileID: 65550097108592504}
   - component: {fileID: 114571387738661862}
+  - component: {fileID: 114299244418259076}
   m_Layer: 10
   m_Name: player
   m_TagString: Player
@@ -2357,19 +2358,31 @@ MonoBehaviour:
   salto: 1
   mover: 0.5
   subirMovimiento: 1
-  saltando: 0
   velocidadDeMovimiento: 5
   dobleSalto: 1
   anim: {fileID: 95258072456707894}
   animatedChar: {fileID: 1325880963385246}
   tiempoActivarDobleSalto: 0.2
-  fuerzaRebote: 20
+  fuerzaRebote: 10
   fuerzaDetenerSubido: -3
   velocidadDetenerSubida: 0.2
   velidadCaida: 0.2
   fuerzaCaidas: -3.2
   nuevosalto: 9.5
   fuerzaDobleSalto: 8
+--- !u!114 &114299244418259076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978134225819780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d89debd48fbaaf44b4cda0ccc980297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 100
+  slideVida: {fileID: 0}
 --- !u!114 &114571387738661862
 MonoBehaviour:
   m_ObjectHideFlags: 1

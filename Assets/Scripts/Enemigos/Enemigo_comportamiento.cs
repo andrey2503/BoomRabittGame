@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemigo_comportamiento : MonoBehaviour {
 	bool atacando=false;
 	int direccion=2;
+	int direccion2=1;
 	int velocidadMovimiento=1;
 	//bool detenerEnemigo=false;
 	// Use this for initialization
@@ -72,9 +73,11 @@ public class Enemigo_comportamiento : MonoBehaviour {
 		if (direccion == 1) {
 			transform.position = new Vector3(transform.position.x+(velocidadMovimiento*Time.deltaTime),transform.position.y,transform.position.z );
 			transform.localScale = new Vector3 (50,50,-50);
+			direccion2 = 2;
 		} else {
 			transform.position = new Vector3(transform.position.x-(velocidadMovimiento*Time.deltaTime),transform.position.y,transform.position.z );
 			transform.localScale = new Vector3 (50,50,50);
+			direccion2 = 1;
 		}
 	}// fin de enemigo buscando
 		
@@ -85,15 +88,23 @@ public class Enemigo_comportamiento : MonoBehaviour {
 				Player_life.instance.disminuirVida ();
 				Player_engine.instance.choqueEnemigo (direccion);
 			} else {
-				Destroy (this.gameObject);
+				if (Player_engine.instance.estadoAtaque ()) {
+					Destroy (this.gameObject);
+				} else {
+					Player_Inputs.instance.activo = false;
+					Player_life.instance.disminuirVida ();
+					Player_engine.instance.choqueEnemigo (direccion2);
+				}
 			}
 		}
 		if(meta.gameObject.tag=="suelo"){
 			//detenerEnemigo = true;
 			if (direccion == 1) {
 				direccion = 2;
+				direccion2 = 1;
 			} else {
 				direccion = 1;
+				direccion2 = 2;
 			}
 		}
 	}// OnTriggerEnter

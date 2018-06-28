@@ -134,15 +134,20 @@ public class Player_engine : MonoBehaviour {
 		}
 		if(personajeAtacando){
 			anim.SetInteger("estado",6);
-			personajeAtacando = false;
+			StartCoroutine (finalizarEstadoAtaque (1f));
 		}
 		if(personajeAtacando && personajeMoviendoce){
 			anim.SetInteger("estado",6);
-			personajeAtacando = false;
+			StartCoroutine (finalizarEstadoAtaque (3f));
 		}
 		Debug.Log ("moviendoce: "+personajeMoviendoce+" saltando: "+personajeSaltando+" atacando: "+personajeAtacando);
 		Debug.Log ("cambiar animacion porque el personaje toco suelo");
 	}// fin de personajeEnSuelo
+
+	IEnumerator finalizarEstadoAtaque(float tiempo){
+		yield return new WaitForSeconds (tiempo);
+		personajeAtacando = false;
+	}
 
 	public void actualizarVelocidad(){
 		
@@ -205,5 +210,9 @@ public class Player_engine : MonoBehaviour {
 		Debug.Log ("ataque"+personajeAtacando);
 
 	}//
+
+	public bool estadoAtaque(){
+		return personajeAtacando;
+	}// fin de estado Ataque
 
 }// fin de la clase
