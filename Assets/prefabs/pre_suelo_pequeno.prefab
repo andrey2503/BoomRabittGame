@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4438315873895318}
   - component: {fileID: 33456719682213386}
-  - component: {fileID: 65963518737495258}
   - component: {fileID: 23743857947468214}
+  - component: {fileID: 65963518737495258}
+  - component: {fileID: 65988481135665274}
   m_Layer: 8
   m_Name: pre_suelo_pequeno
   m_TagString: suelo
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1415391100528060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.788, y: -0.185, z: 0}
-  m_LocalScale: {x: 3.6091897, y: 2.7135656, z: 3.212384}
+  m_LocalPosition: {x: 50.58, y: 3.349, z: -2.399}
+  m_LocalScale: {x: 0.3372, y: 0.06512419, z: 0.5159}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,12 +52,13 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6ed8db2d1d1a23342be9aa163379a087, type: 2}
+  - {fileID: 2100000, guid: cd9a94f6dd5395244aa64141eaea2114, type: 3}
+  - {fileID: 2100002, guid: cd9a94f6dd5395244aa64141eaea2114, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -64,7 +66,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -82,8 +84,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1415391100528060}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: cd9a94f6dd5395244aa64141eaea2114, type: 3}
 --- !u!65 &65963518737495258
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415391100528060}
+  m_Material: {fileID: 13400000, guid: 4c22142d1a5e20048b2fd3b6e1fd95de, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.914743, y: 9.965459, z: 9.999999}
+  m_Center: {x: 4.9308715, y: 4.9827294, z: 4.9999995}
+--- !u!65 &65988481135665274
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,5 +107,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 9.775525, y: 8.301429, z: 9.999999}
+  m_Center: {x: 4.9551477, y: 5.8492937, z: 4.9999995}
