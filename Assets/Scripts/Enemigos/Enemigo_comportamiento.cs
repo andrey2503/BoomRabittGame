@@ -9,6 +9,8 @@ public class Enemigo_comportamiento : MonoBehaviour {
 	int velocidadMovimiento=1;
 	//bool detenerEnemigo=false;
 	// Use this for initialization
+
+	public Animator anim;
 	void Start () {
 		
 	}
@@ -18,15 +20,18 @@ public class Enemigo_comportamiento : MonoBehaviour {
 
 				if (direccion == 1) {
 					EnemigoPatrullando (1);
+			anim.SetInteger ("estado_maquina",0);
 				}
 				if (direccion == 2) {
 					EnemigoPatrullando (2);
+			anim.SetInteger ("estado_maquina",0);
 				}
 				if (!atacando) {
 					velocidadMovimiento=1;
 				}
 				else {
 					atacandoPersonje ();
+			anim.SetInteger ("estado_maquina",1);
 				}
 	}// fin del update
 
@@ -89,7 +94,9 @@ public class Enemigo_comportamiento : MonoBehaviour {
 				Player_engine.instance.choqueEnemigo (direccion);
 			} else {
 				if (Player_engine.instance.estadoAtaque ()) {
-					Destroy (this.gameObject);
+					this.gameObject.GetComponent<BoxCollider> ().enabled = false;
+					//this.gameObject.GetComponent<Rigidbody> (). = false;
+					//Destroy (this.gameObject);
 				} else {
 					Player_Inputs.instance.activo = false;
 					Player_life.instance.disminuirVida ();
