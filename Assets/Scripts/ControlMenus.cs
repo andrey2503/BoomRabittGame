@@ -31,8 +31,8 @@ public class ControlMenus : MonoBehaviour {
 		Player_Inputs.instance.inhabilitarInputs ();
 	}
 
-	IEnumerator iniciarSiguienteNivel (){
-		yield return new WaitForSeconds (3f);
+	public void iniciarSiguienteNivel (){
+		//yield return new WaitForSeconds (3f);
 		CambioEscena.instance.setScene (nivelSiguiente);
 	}
 
@@ -53,11 +53,9 @@ public class ControlMenus : MonoBehaviour {
 	public void activarMenuGano(){
 		texto_puntos_menu_ganado.text = Puntos_control.instance.getPuntos ()+"";
 		menuGano.SetActive (true);
-		StartCoroutine (iniciarSiguienteNivel());
+		//StartCoroutine (iniciarSiguienteNivel());
 	}//
 
-	public void SalirJuego(){
-		Application.Quit();
-	}//salir del juego
+
 
 }

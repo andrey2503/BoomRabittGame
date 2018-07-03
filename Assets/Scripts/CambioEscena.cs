@@ -50,4 +50,8 @@ public class CambioEscena : MonoBehaviour {
 		this.indiceEscena = escena;
 		CambiarEscenaManual ();
 	}
+
+	public void SalirJuego(){
+		Application.Quit();
+	}//salir del juego
 }
