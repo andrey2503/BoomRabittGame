@@ -56,4 +56,8 @@ public class ControlMenus : MonoBehaviour {
 		StartCoroutine (iniciarSiguienteNivel());
 	}//
 
+	public void SalirJuego(){
+		Application.Quit();
+	}//salir del juego
+
 }
