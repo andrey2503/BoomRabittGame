@@ -14,7 +14,8 @@ public class LocalizedText : MonoBehaviour {
             instance = this;
         } else if (instance != this)
         {
-            Destroy (gameObject);
+			Debug.Log ("destruir " +gameObject.name);
+        //    Destroy (gameObject);
         }
 
         Text text = GetComponent<Text> ();

@@ -56,6 +56,10 @@ public class ControlMenus : MonoBehaviour {
 		//StartCoroutine (iniciarSiguienteNivel());
 	}//
 
+	public void menuprincipal(){
+		CambioEscena.instance.menuPrincipal();
+	}//
+
 
 
 }

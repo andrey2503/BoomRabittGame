@@ -1,16 +1,36 @@
 {
     "items": [
         {
-            "key": "game_title",
-            "value": "BoomRabitt Game"
-        },
-        {
-            "key": "start_button",
-            "value": "Start Game"
-        },
-        {
             "key": "iniciar_juego",
             "value":"Start game"
+        },
+        {
+            "key": "reiniciar",
+            "value":"restart"
+        },
+        {
+            "key": "puntos",
+            "value":"Points"
+        },
+        {
+            "key": "regresar_menu",
+            "value":"Back to menu"
+        },
+        {
+            "key": "sonido",
+            "value":"Sound"
+        },
+        {
+            "key": "salir",
+            "value":"Exit"
+        },
+        {
+            "key": "ingles",
+            "value":"English"
+        },
+        {
+            "key": "espanol",
+            "value":"Spanish"
         }
     ]
 }

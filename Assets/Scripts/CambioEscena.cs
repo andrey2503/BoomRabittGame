@@ -39,6 +39,9 @@ public class CambioEscena : MonoBehaviour {
 		SceneManager.LoadScene (escenaMenu);
 	}
 
+	public void menuPrincipal(){
+		SceneManager.LoadScene (2);
+	}// fin de menuPrincipal
 
 	private IEnumerator SceneSwitcher(){
 		yield return new WaitForSeconds (tiempoEspera);
