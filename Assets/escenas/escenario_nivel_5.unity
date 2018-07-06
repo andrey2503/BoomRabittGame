@@ -3028,26 +3028,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 137371085402393902, guid: d73380ca36c2a604b90b734e352c4c93,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1af128f05e2512740810afb9a4924358, type: 2}
-    - target: {fileID: 137724708764531070, guid: d73380ca36c2a604b90b734e352c4c93,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1af128f05e2512740810afb9a4924358, type: 2}
-    - target: {fileID: 137901448283645758, guid: d73380ca36c2a604b90b734e352c4c93,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9d69ef05f2d75864d89b6a8ec1174567, type: 2}
-    - target: {fileID: 137111997126219172, guid: d73380ca36c2a604b90b734e352c4c93,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9d69ef05f2d75864d89b6a8ec1174567, type: 2}
     - target: {fileID: 114299244418259076, guid: d73380ca36c2a604b90b734e352c4c93,
         type: 2}
       propertyPath: slideVida
@@ -5316,7 +5296,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947064837}
+      - m_Target: {fileID: 0}
         m_MethodName: reiniciarNivel
         m_Mode: 1
         m_Arguments:
@@ -5596,8 +5576,8 @@ MonoBehaviour:
   menuGano: {fileID: 1909345375}
   texto_puntos_menu_perdida: {fileID: 1688803528}
   texto_puntos_menu_ganado: {fileID: 1990908011}
-  nivelRestart: 6
-  nivelSiguiente: 7
+  nivelRestart: 8
+  nivelSiguiente: 2
 --- !u!4 &947064838
 Transform:
   m_ObjectHideFlags: 0
@@ -8401,7 +8381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947064837}
+      - m_Target: {fileID: 0}
         m_MethodName: reiniciarNivel
         m_Mode: 1
         m_Arguments:
@@ -9730,9 +9710,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947064837}
-        m_MethodName: menuprincipal
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: BackToMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

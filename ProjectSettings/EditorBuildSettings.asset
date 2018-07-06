@@ -26,3 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/escenas/escenario_nivel_3.unity
     guid: 4ae947307302dc54da5b997abc5a57a4
+  - enabled: 1
+    path: Assets/escenas/escenario_nivel_4.unity
+    guid: cf790c0b35d5c5c479316d4ca9a88bd4
+  - enabled: 1
+    path: Assets/escenas/escenario_nivel_5.unity
+    guid: 5ee832301a5d6de4d90dcb38a120c53b

@@ -16,7 +16,8 @@ public class Player_engine : MonoBehaviour {
 
 	//estados de animacion
 	bool personajeMoviendoce=false;
-	bool personajeSaltando = false;
+	public bool personajeSaltando = false;
+	public bool personajeSaltando2	= false;
 	bool personajeAtacando= false;
 
 
@@ -40,7 +41,7 @@ public class Player_engine : MonoBehaviour {
 		personaje.GetComponent<Rigidbody> ().velocity = new Vector3(mover,getVelocityPostY(), 0f );
         animatedChar.transform.localScale = new Vector3(1,1,1);
 		personajeMoviendoce = true;
-		if (!personajeSaltando) {
+		if (!personajeSaltando2) {
 			Player_sonidos.instance.iniciar_correr ();
 		} else {
 			Player_sonidos.instance.parar_correr ();
@@ -52,7 +53,7 @@ public class Player_engine : MonoBehaviour {
         animatedChar.transform.localScale = new Vector3(1, 1, -1);
 		personajeMoviendoce = true;
 
-		if (!personajeSaltando) {
+		if (!personajeSaltando2) {
 			Player_sonidos.instance.iniciar_correr ();
 		} else {
 			Player_sonidos.instance.parar_correr ();
@@ -111,7 +112,8 @@ public class Player_engine : MonoBehaviour {
 	public void personajeEnSuelo(){
 		subirMovimiento = true;
 		dobleSalto = 1;
-		personajeSaltando = false;
+		//personajeSaltando = true;
+		personajeSaltando2 = false;
 		if (!personajeMoviendoce && !personajeSaltando && !personajeAtacando) {
 			anim.SetInteger ("estado", 0);
 		} 
@@ -167,7 +169,8 @@ public class Player_engine : MonoBehaviour {
 		yield return new WaitForSeconds (velocidadDetenerSubida);
 		personaje.GetComponent<Rigidbody> ().AddForce (new Vector2(0,fuerzaDetenerSubido), ForceMode.Impulse);
 		StartCoroutine (fuerzaCaida());
-
+		personajeSaltando = false;
+		//personajeSaltando2= false;
 	}// fin de fuerzaDetenida
 
 	public float velidadCaida=0.5f;
@@ -175,12 +178,15 @@ public class Player_engine : MonoBehaviour {
 	public IEnumerator fuerzaCaida(){
 		yield return new WaitForSeconds (velidadCaida);
 		personaje.GetComponent<Rigidbody> ().AddForce (new Vector2(0,fuerzaCaidas), ForceMode.Impulse);
-
+		personajeSaltando = false;
+		//personajeSaltando2 = false;
 	}
 
 	public float nuevosalto=10f;
 	private void nuevoSalto(){
 		personajeSaltando = true;
+		personajeSaltando2 = true;
+		Player_sonidos.instance.iniciar_salto();
 		personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,nuevosalto),ForceMode.Impulse);
 		StartCoroutine (fuerzaDetenida());
 	}// fin de nuevoSalto
@@ -188,6 +194,8 @@ public class Player_engine : MonoBehaviour {
 	public float fuerzaDobleSalto=2f;
 	public void activarDobleSalto(){
 		if(dobleSalto==0){
+			//personajeSaltando = true;
+			//personajeSaltando2 = true;
 			dobleSalto++;
 			Player_sonidos.instance.iniciar_salto();
 			personaje.GetComponent<Rigidbody>().AddForce(new Vector2(0,fuerzaDobleSalto),ForceMode.Impulse);

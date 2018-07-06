@@ -2427,7 +2427,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d6e741559c631b6429a5d7df3d7e1a19, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.222
+  m_Volume: 0.066
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2612,6 +2612,8 @@ MonoBehaviour:
   dobleSalto: 1
   anim: {fileID: 95258072456707894}
   animatedChar: {fileID: 1325880963385246}
+  personajeSaltando: 0
+  personajeSaltando2: 0
   tiempoActivarDobleSalto: 0.2
   fuerzaRebote: 10
   fuerzaDetenerSubido: -3
@@ -2670,7 +2672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fd918901580f54dbc5dbfc0fc08d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distancia_deteccion: 1.58
+  distancia_deteccion: 1.71
 --- !u!114 &114984854257887660
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -32,6 +32,8 @@ public class Player_sonidos : MonoBehaviour {
 
 	public void iniciar_salto(){
 		sonido_saltar.GetComponent<AudioSource> ().Play ();
+		sonido_correr.GetComponent<AudioSource> ().Stop ();
+		corriendo = false;
 	}// fin de correr
 	public void parar_salto(){
 		sonido_saltar.GetComponent<AudioSource> ().Stop ();

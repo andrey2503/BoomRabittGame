@@ -1011,6 +1011,8 @@ MonoBehaviour:
   dobleSalto: 1
   anim: {fileID: 0}
   animatedChar: {fileID: 0}
+  personajeSaltando: 0
+  personajeSaltando2: 0
   tiempoActivarDobleSalto: 0.5
   fuerzaRebote: 20
   fuerzaDetenerSubido: -5
@@ -1569,9 +1571,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: BackToMenu
-        m_Mode: 3
+      - m_Target: {fileID: 947064837}
+        m_MethodName: menuprincipal
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7783,7 +7785,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 947064837}
         m_MethodName: reiniciarNivel
         m_Mode: 1
         m_Arguments:
