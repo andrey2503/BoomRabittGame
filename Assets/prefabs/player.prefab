@@ -2672,7 +2672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fd918901580f54dbc5dbfc0fc08d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distancia_deteccion: 1.71
+  distancia_deteccion: 1.61
 --- !u!114 &114984854257887660
 MonoBehaviour:
   m_ObjectHideFlags: 1
