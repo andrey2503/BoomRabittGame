@@ -2620,7 +2620,7 @@ MonoBehaviour:
   velocidadDetenerSubida: 0.2
   velidadCaida: 0.2
   fuerzaCaidas: -3.2
-  nuevosalto: 9.5
+  nuevosalto: 7
   fuerzaDobleSalto: 8
 --- !u!114 &114299244418259076
 MonoBehaviour:

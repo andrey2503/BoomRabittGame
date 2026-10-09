@@ -6,7 +6,6 @@ public class Player_Inputs : MonoBehaviour {
 	public bool activo = true;
 	public static Player_Inputs instance;
 	public int llamarCorrutina=1;
-	private int direccion=0;
 	// Use this for initialization
 
 	void Awake(){
@@ -23,16 +22,31 @@ public class Player_Inputs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(activo){
+			// Solo registramos la intencion de saltar. Player_engine decide en FixedUpdate
+			// si corresponde salto normal o doble salto, porque aqui en Update el raycast
+			// todavia ve el suelo en el frame del despegue y siempre daba salto normal.
+			if (Input.GetKeyDown (KeyCode.UpArrow)) {
+				Player_engine.instance.SolicitarSalto ();
+			}
+			// soltar la tecla temprano corta la subida -> altura de salto variable
+			if (Input.GetKeyUp (KeyCode.UpArrow)) {
+				Player_engine.instance.SoltarBotonSalto ();
+			}
+			if(Input.GetKeyDown("space")){
+				//if(Player_ataque.instance.ataque (direccion)){
+					Player_engine.instance.activarAtaque ();
+				//}//player ataque if
+			}
+		}//if activo
 	}// fin de update
 
 	void FixedUpdate(){
 		if(activo){
 			if (Input.GetAxis ("Horizontal") != 0) {
-				
+
 				float mover = Input.GetAxis ("Horizontal");
 				if (mover > 0) {
-					direccion = 1;
 					Player_engine.instance.MoverDerecha ();
 					llamarCorrutinaMovimiento ();
 					llamarCorrutina++;
@@ -40,7 +54,6 @@ public class Player_Inputs : MonoBehaviour {
 				} else if (mover < 0) {
 					//limite del mundo
 					if(Player_engine.instance.getPosX()>0){
-						direccion = -1;
 					Player_engine.instance.MoverIzquierda ();
 					llamarCorrutinaMovimiento ();
 					llamarCorrutina++;
@@ -51,23 +64,7 @@ public class Player_Inputs : MonoBehaviour {
 				llamarCorrutina=1;
 				Player_engine.instance.personajeDetenido ();
 			}
-			if (Input.GetKeyDown (KeyCode.UpArrow)) {
-				//Player_engine.instance.Salto ();
-				if (Player_jump.instance.verificar_suerlo ()) {
-					Player_engine.instance.Salto ();
-				} else {
-					Player_engine.instance.activarDobleSalto ();
-				}
-			}// fin de input space
-			if(Input.GetKeyDown("space")){
-				//if(Player_ataque.instance.ataque (direccion)){
-					Player_engine.instance.activarAtaque ();
-				//}//player ataque if
-			}
 		}//if activo
-		else{
-			
-		}
 	}//fin de fixexUpdate
 
 	public void llamarCorrutinaMovimiento(){

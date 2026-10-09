@@ -10,6 +10,9 @@ public class Camara_controller : MonoBehaviour {
 	public float velocidadZoom=1.0f;
 	public GameObject Main_Camera;
 	public float originaly,originalz;
+	// altura a la que empieza y termina la transicion hacia el modo "alto" (evita el salto brusco de destino al cruzar un unico umbral)
+	public float alturaInicioTransicion = 6f;
+	public float alturaFinTransicion = 10f;
 	void Start () {
 		instance = this;
 		originaly = Main_Camera.GetComponent<Transform> ().position.y;
@@ -17,15 +20,20 @@ public class Camara_controller : MonoBehaviour {
 	}// fin del start
 
 
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (Player_engine.instance.getPosY () > 8) {
-			Vector3 destino = new Vector3 (Player_engine.instance.getPosX (), Player_engine.instance.getPosY ()+4, -18f);
-			Main_Camera.GetComponent<Transform> ().position=Vector3.Lerp (Main_Camera.GetComponent<Transform> ().position,destino,Time.deltaTime*velocidad);
-		} else {
-			Vector3 destino = new Vector3 (Player_engine.instance.getPosX (),originaly ,originalz);
-			Main_Camera.GetComponent<Transform> ().position=Vector3.Lerp (Main_Camera.GetComponent<Transform> ().position,destino,Time.deltaTime*velocidad);
-		}
+		Transform camTransform = Main_Camera.GetComponent<Transform> ();
+		Vector3 posActual = camTransform.position;
+		float posY = Player_engine.instance.getPosY ();
+		float t = Mathf.Clamp01 (Mathf.InverseLerp (alturaInicioTransicion, alturaFinTransicion, posY));
+		float targetZ = Mathf.Lerp (originalz, -18f, t);
+		float targetY = Mathf.Lerp (originaly, posY+4, t);
+
+		float nuevaX = Mathf.Lerp (posActual.x, Player_engine.instance.getPosX (), Time.deltaTime*velocidad);
+		float nuevaY = Mathf.Lerp (posActual.y, targetY, Time.deltaTime*velocidad);
+		float nuevaZ = Mathf.Lerp (posActual.z, targetZ, Time.deltaTime*velocidadZoom);
+
+		camTransform.position = new Vector3 (nuevaX, nuevaY, nuevaZ);
 	}// fin de update
 }

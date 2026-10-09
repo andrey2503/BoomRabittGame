@@ -40,8 +40,8 @@ public class Enemigo_comportamiento : MonoBehaviour {
 		velocidadMovimiento = 2;
 	}// fin de atacando personaje
 
-	public void muerteEnemigo(int direccion,int ladopersonaje){
-		if (ladopersonaje == direccion) {
+	public void muerteEnemigo(int direccionActual,int ladopersonaje){
+		if (ladopersonaje == direccionActual) {
 			direccion = ladopersonaje;
 			atacando = true;
 			atacandoPersonje ();
