@@ -256,7 +256,9 @@ public static class HUDProfesional {
 	// ------------------------------------------------------------------
 	// sprites generados por codigo (el proyecto no tiene carpeta Resources)
 	// ------------------------------------------------------------------
-	private static Sprite PanelRedondeado(){
+	// publico para que otras pantallas (menu de victoria, etc.) usen el mismo panel
+	// y el juego mantenga un lenguaje visual unico
+	public static Sprite PanelRedondeado(){
 		if (spritePanel != null) {
 			return spritePanel;
 		}

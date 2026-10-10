@@ -31,10 +31,19 @@ public class Puntos_control : MonoBehaviour {
 
 	}// fin del Awake
 
+	// Las zanahorias ya no son solo un contador: cada lote cura al jugador, asi
+	// que vale la pena desviarse del camino recto para recogerlas.
+	[Header ("Recompensa")]
+	public int zanahoriasPorCura = 8;
+	public int curaPorLote = 25;
+
 	public void sumarPunto(){
 		puntos++;
 		// el icono de zanahoria del HUD ya da el contexto: basta el numero
 		texto_puntos.text = puntos.ToString ();
+		if (zanahoriasPorCura > 0 && puntos % zanahoriasPorCura == 0 && Player_life.instance != null) {
+			Player_life.instance.curarVida (curaPorLote);
+		}
 		if (punchRoutine != null) {
 			StopCoroutine (punchRoutine);
 		}

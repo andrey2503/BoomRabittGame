@@ -16,8 +16,9 @@ public class ControlMenus : MonoBehaviour {
 	public int nivelRestart = 0;
 	public int nivelSiguiente = 0;
 
-	// Use this for initialization
-	void Start () {
+	// En Awake y no en Start: otros sistemas (Player_dead, el armado del menu de
+	// victoria) consultan ControlMenus.instance antes de que corran los Start.
+	void Awake () {
 		if (instance == null) {
 			instance = this;
 		} else {
@@ -51,9 +52,14 @@ public class ControlMenus : MonoBehaviour {
 	}//
 
 	public void activarMenuGano(){
+		if (menuGano.activeSelf) {
+			return;
+		}
 		texto_puntos_menu_ganado.text = Puntos_control.instance.getPuntos ()+"";
 		menuGano.SetActive (true);
-		//StartCoroutine (iniciarSiguienteNivel());
+		// Faltaba: sin esto el jugador seguia controlando al conejo detras de la
+		// pantalla de victoria, y hasta podia caerse y sacar el Game Over encima.
+		Player_Inputs.instance.inhabilitarInputs ();
 	}//
 
 	public void menuprincipal(){

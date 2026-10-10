@@ -14,6 +14,10 @@ public class Player_life : MonoBehaviour {
 	public Color colorVidaBaja = new Color(0.9f, 0.2f, 0.2f);
 	public float duracionAnimacionVida = 0.35f;
 	public float umbralCritico = 0.25f;
+
+	[Header ("Caida al vacio y curacion")]
+	public int vidaMaxima = 100;
+	public int danioPorCaida = 25;
 	private Coroutine animacionVidaRoutine;
 	private Coroutine pulsoCriticoRoutine;
 	private bool enEstadoCritico = false;
@@ -38,6 +42,28 @@ public class Player_life : MonoBehaviour {
 			ControlMenus.instance.activarMenuRestart ();
 		}
 	}// fin de dismiuir Vida
+
+	// Caer a un precipicio ya no manda al inicio del nivel: cuesta vida y
+	// reaparece en el ultimo suelo pisado. Solo es Game Over si la vida se acaba,
+	// igual que con los enemigos.
+	public void caidaAlVacio(){
+		this.vida = this.vida - danioPorCaida;
+		animarSlideVida ();
+		if (this.vida <= 0) {
+			ControlMenus.instance.activarMenuRestart ();
+			return;
+		}
+		Player_engine.instance.reaparecerEnPuntoSeguro ();
+	}// fin de caidaAlVacio
+
+	// Las zanahorias ahora sirven para algo: cada cierto numero curan al jugador.
+	public void curarVida(int cantidad){
+		if (this.vida >= vidaMaxima) {
+			return;
+		}
+		this.vida = Mathf.Min (this.vida + cantidad, vidaMaxima);
+		animarSlideVida ();
+	}// fin de curarVida
 
 	private void animarSlideVida(){
 		if (animacionVidaRoutine != null) {

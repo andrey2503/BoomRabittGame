@@ -37,6 +37,20 @@ public class Player_engine : MonoBehaviour {
 		return  personaje.GetComponent<Rigidbody> ().linearVelocity.y;
 	}
 
+	public float getVelocityPostX (){
+		if (personaje == null) {
+			return 0f;
+		}
+		Rigidbody rb = personaje.GetComponent<Rigidbody> ();
+		return rb == null ? 0f : rb.linearVelocity.x;
+	}
+
+	// estado de suelo autoritativo (incluye el bloqueo posterior al despegue).
+	// Lo usa la camara para no rebotar en cada salto.
+	public bool EstaEnSuelo (){
+		return enSuelo;
+	}
+
 	public void MoverDerecha(){
 		personaje.GetComponent<Rigidbody> ().linearVelocity = new Vector3(mover,getVelocityPostY(), 0f );
         animatedChar.transform.localScale = new Vector3(1,1,1);
@@ -97,18 +111,49 @@ public class Player_engine : MonoBehaviour {
 	}
 
 	public void resetPostPlayer(){
-		personaje.transform.position = new Vector3 (0,2,0);
+		colocarJugadorEn (new Vector3 (0, 2, 0));
+		puntoSeguro = new Vector3 (0, 2, 0);
+	}
+
+	// --- checkpoints blandos -------------------------------------------
+	// En vez de obligar a colocar checkpoints a mano por el nivel, se recuerda
+	// el ultimo sitio firme donde el jugador estuvo de pie. Al caer a un
+	// precipicio reaparece ahi en lugar de volver al inicio del nivel.
+	[Header ("Reaparicion")]
+	public float intervaloPuntoSeguro = 0.3f;
+	public float alturaReaparicion = 0.6f;
+	private Vector3 puntoSeguro;
+	private bool hayPuntoSeguro = false;
+	private float tiempoUltimoPuntoSeguro = -999f;
+
+	private void registrarPuntoSeguro(){
+		if (Time.time - tiempoUltimoPuntoSeguro < intervaloPuntoSeguro) {
+			return;
+		}
+		tiempoUltimoPuntoSeguro = Time.time;
+		puntoSeguro = personaje.transform.position;
+		hayPuntoSeguro = true;
+	}// fin de registrarPuntoSeguro
+
+	public void reaparecerEnPuntoSeguro(){
+		Vector3 destino = hayPuntoSeguro ? puntoSeguro + Vector3.up * alturaReaparicion : new Vector3 (0, 2, 0);
+		colocarJugadorEn (destino);
+	}// fin de reaparecerEnPuntoSeguro
+
+	private void colocarJugadorEn(Vector3 destino){
+		personaje.transform.position = destino;
 		// sin esto el jugador reaparecia arrastrando la velocidad de la caida anterior
 		Rigidbody rb = personaje.GetComponent<Rigidbody> ();
 		if (rb != null) {
 			rb.linearVelocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
 		}
 		saltoEnCurso = false;
 		dobleSaltoDisponible = true;
 		botonSaltoMantenido = false;
 		tiempoInputSalto = -999f;
 		tiempoUltimoSalto = -999f;
-	}
+	}// fin de colocarJugadorEn
 	public void personajeDetenido(){
 		this.mover = 2f;
 		subirMovimiento = false;
@@ -240,6 +285,7 @@ public class Player_engine : MonoBehaviour {
 			tiempoUltimoSuelo = Time.time;
 			saltoEnCurso = false;
 			dobleSaltoDisponible = true;
+			registrarPuntoSeguro ();
 		}
 
 		procesarSaltoPendiente (rb);

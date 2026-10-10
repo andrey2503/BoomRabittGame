@@ -11,12 +11,25 @@ public class Enemigo_comportamiento : MonoBehaviour {
 	// Use this for initialization
 
 	public Animator anim;
+
+	[Header ("Muerte")]
+	public float duracionMuerte = 0.45f;
+	public float alturaRebote = 0.6f;
+	public float giroMuerte = 720f;
+	private bool muerto = false;
+
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
+
+			// sin esto la patrulla seguiria corriendo durante la muerte y pisaria
+			// la posicion y la escala que anima la corrutina
+			if (muerto) {
+				return;
+			}
 
 				if (direccion == 1) {
 					EnemigoPatrullando (1);
@@ -87,6 +100,9 @@ public class Enemigo_comportamiento : MonoBehaviour {
 	}// fin de enemigo buscando
 		
 	void OnCollisionEnter(Collision meta){
+		if (muerto) {
+			return;
+		}
 		if(meta.gameObject.tag=="Player"){
 			if (atacando) {
 				Player_Inputs.instance.activo = false;
@@ -94,9 +110,7 @@ public class Enemigo_comportamiento : MonoBehaviour {
 				Player_engine.instance.choqueEnemigo (direccion);
 			} else {
 				if (Player_engine.instance.estadoAtaque ()) {
-					this.gameObject.GetComponent<BoxCollider> ().enabled = false;
-					//this.gameObject.GetComponent<Rigidbody> (). = false;
-					//Destroy (this.gameObject);
+					matarEnemigo ();
 				} else {
 					Player_Inputs.instance.activo = false;
 					Player_life.instance.disminuirVida ();
@@ -115,6 +129,53 @@ public class Enemigo_comportamiento : MonoBehaviour {
 			}
 		}
 	}// OnTriggerEnter
+
+	// Antes aqui solo se desactivaba el BoxCollider y el Destroy estaba comentado:
+	// el Rigidbody seguia con gravedad y sin collider, asi que el enemigo se hundia
+	// atravesando el suelo mientras la patrulla lo seguia moviendo de lado.
+	public void matarEnemigo(){
+		if (muerto) {
+			return;
+		}
+		muerto = true;
+
+		// que deje de colisionar y de caer
+		foreach (Collider collider in GetComponentsInChildren<Collider> ()) {
+			collider.enabled = false;
+		}
+		Rigidbody rb = GetComponent<Rigidbody> ();
+		if (rb != null) {
+			rb.linearVelocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
+			rb.isKinematic = true;
+		}
+		// congelamos la pose para que la animacion no pelee con la corrutina
+		if (anim != null) {
+			anim.enabled = false;
+		}
+		AudioSource sonido = GetComponent<AudioSource> ();
+		if (sonido != null) {
+			sonido.Play ();
+		}
+		StartCoroutine (animacionMuerte ());
+	}// fin de matarEnemigo
+
+	// Rebote corto hacia arriba, giro y encogimiento hasta desaparecer.
+	private IEnumerator animacionMuerte(){
+		Vector3 escalaInicial = transform.localScale;
+		Vector3 posicionInicial = transform.position;
+		float tiempo = 0f;
+		while (tiempo < duracionMuerte) {
+			tiempo += Time.deltaTime;
+			float k = Mathf.Clamp01 (tiempo / duracionMuerte);
+			transform.position = posicionInicial + new Vector3 (0f, Mathf.Sin (k * Mathf.PI) * alturaRebote, 0f);
+			// k*k mantiene el tamano un instante y luego lo colapsa rapido
+			transform.localScale = escalaInicial * (1f - k * k);
+			transform.Rotate (0f, giroMuerte * Time.deltaTime, 0f, Space.Self);
+			yield return null;
+		}
+		Destroy (gameObject);
+	}// fin de animacionMuerte
 
 	public int getDireccion(){
 		return direccion;

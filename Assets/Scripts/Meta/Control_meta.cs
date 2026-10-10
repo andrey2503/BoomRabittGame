@@ -10,8 +10,14 @@ public class Control_meta : MonoBehaviour {
 		instance = this;
 	}
 
+	private bool metaAlcanzada = false;
+
 	void OnTriggerEnter(Collider meta){
+		if (metaAlcanzada) {
+			return;   // la meta solo se cruza una vez por nivel
+		}
 		if(meta.gameObject.tag=="Player"){
+			metaAlcanzada = true;
 			Debug.Log ("Jugador llego a la meta");
 			ControlMenus.instance.activarMenuGano ();
 		}
